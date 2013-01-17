@@ -90,8 +90,11 @@ public class GameplayState extends BasicGameState {
         return getProperty("door", (int) x / SIZE, (int) y / SIZE).equals("true");
     }
 
+    //change the level once a door or passageway is reached (collided with)
     public void levelChange(int xPos, int yPos) throws SlickException{
-        levelID = map.getTileProperty(map.getTileId(xPos, yPos, 0), "levelID", "0");
+        //get the levelID from the .tmx file (which level it will be going to)
+        levelID = map.getTileProperty(map.getTileId((xPos / SIZE), (yPos / SIZE), 0), "levelID", "0");
+        //switch map depending on levelID and x and y starting coordinates
         if(levelID.equals("1")){
             map = levelMap[1];
             x = 256;
@@ -109,13 +112,13 @@ public class GameplayState extends BasicGameState {
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
         Input input = container.getInput();
         //xSIZE means sprite width
-        //halfxSIZE means the sides of the sprite image (since it all has to equal 32px)
+        //excesshalfsxSIZE means the sides of the sprite image (since it all has to equal 32px)
         int xSIZE = 18;
-        int halfxSIZE = 7;
+        int excesshalfsxSIZE = 7;
         //ySIZE means sprite height
-        //restySIZE is the 10 other pixels above the sprite's original size (since it has to equal 32px)
+        //excessySIZE is the 10 other pixels above the sprite's original size (since it has to equal 32px)
         int ySIZE = 22;
-        int restySIZE = 10;
+        int excessySIZE = 10;
         boolean collision = false;
         //the lower the delta the slower the sprite will update
         //velocity = velocity (f means float, which is half a double)
@@ -128,12 +131,12 @@ public class GameplayState extends BasicGameState {
             //check space in front and to the side of sprite in case the wall is connected to another wall
             for(int j = 0; j < xSIZE; j++){
                 //check x+i because it checks from top left of sprite, which may miss walls to the right of it
-                if(isBlocked(x + halfxSIZE + j, y + restySIZE - delta * velocity)){
+                if(isBlocked(x + excesshalfsxSIZE + j, y + excessySIZE - delta * velocity)){
                     collision = true;
                     j = xSIZE;
                 }
-                if(isDoor(x + halfxSIZE + j, y + restySIZE - delta * velocity)){
-                    levelChange((int)(x + halfxSIZE + j), (int)(y + restySIZE - delta * velocity));
+                if(isDoor(x + excesshalfsxSIZE + j, y + excessySIZE - delta * velocity)){
+                    levelChange((int)(x + excesshalfsxSIZE + j), (int)(y + excessySIZE - delta * velocity));
                     collision = true;
                 }
             }
@@ -144,11 +147,11 @@ public class GameplayState extends BasicGameState {
         }
         else if(input.isKeyDown(Input.KEY_DOWN)){
             sprite = down;
-            if(!isBlocked(x + halfxSIZE, y + restySIZE + ySIZE + delta * velocity)){
+            if(!isBlocked(x + excesshalfsxSIZE, y + excessySIZE + ySIZE + delta * velocity)){
                 collision = false;
             }
             for(int j = 0; j < xSIZE; j++){
-                if(isBlocked(x + halfxSIZE + j, y + restySIZE + ySIZE + delta * velocity)){
+                if(isBlocked(x + excesshalfsxSIZE + j, y + excessySIZE + ySIZE + delta * velocity)){
                     collision = true;
                     j = SIZE;
                 }
@@ -160,11 +163,11 @@ public class GameplayState extends BasicGameState {
         }
         else if(input.isKeyDown(Input.KEY_LEFT)){
             sprite = left;
-            if(!isBlocked(x + halfxSIZE - delta * velocity, y + restySIZE)){
+            if(!isBlocked(x + excesshalfsxSIZE - delta * velocity, y + excessySIZE)){
                 collision = false;
             }
             for(int j = 0; j < ySIZE; j++){
-                if(isBlocked(x + halfxSIZE - delta * velocity, y + restySIZE + j)){
+                if(isBlocked(x + excesshalfsxSIZE - delta * velocity, y + excessySIZE + j)){
                     collision = true;
                     j = ySIZE;
                 }
@@ -176,11 +179,11 @@ public class GameplayState extends BasicGameState {
         }
         else if(input.isKeyDown(Input.KEY_RIGHT)){
             sprite = right;
-            if(!isBlocked(x + (halfxSIZE + xSIZE) + delta * velocity, y + restySIZE)){
+            if(!isBlocked(x + (excesshalfsxSIZE + xSIZE) + delta * velocity, y + excessySIZE)){
                 collision = false;
             }
             for (int j = 0; j < ySIZE; j++){
-                if(isBlocked(x + (halfxSIZE + xSIZE) + delta * velocity, y + restySIZE + j)){
+                if(isBlocked(x + (excesshalfsxSIZE + xSIZE) + delta * velocity, y + excessySIZE + j)){
                     collision = true;
                     j = ySIZE;
                 }
