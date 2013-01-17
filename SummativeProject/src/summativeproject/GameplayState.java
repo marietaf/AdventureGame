@@ -97,13 +97,13 @@ public class GameplayState extends BasicGameState {
         //switch map depending on levelID and x and y starting coordinates
         if(levelID.equals("1")){
             map = levelMap[1];
-            x = 256;
-            y = 352;
+            x = 224;
+            y = 384;
         }
         else if(levelID.equals("2")){
            map = levelMap[2];
            x = 224;
-           y = 448;
+           y = 416;
         }
     }
 
@@ -155,6 +155,10 @@ public class GameplayState extends BasicGameState {
                     collision = true;
                     j = SIZE;
                 }
+                if(isDoor(x + excesshalfsxSIZE + j, y + excessySIZE + ySIZE + delta * velocity)){
+                    levelChange((int)(x + excesshalfsxSIZE), (int)(y + excessySIZE + ySIZE + delta * velocity));
+                    collision = true;
+                }
             }
             if(!collision){
                 sprite.update(delta);
@@ -171,6 +175,10 @@ public class GameplayState extends BasicGameState {
                     collision = true;
                     j = ySIZE;
                 }
+                if(isDoor(x + excesshalfsxSIZE - delta * velocity, y + excessySIZE + j)){
+                    levelChange((int)(x + excesshalfsxSIZE - delta * velocity), (int)(y + excessySIZE));
+                    collision = true;
+                }
             }
             if(!collision){
                 sprite.update(delta);
@@ -186,6 +194,10 @@ public class GameplayState extends BasicGameState {
                 if(isBlocked(x + (excesshalfsxSIZE + xSIZE) + delta * velocity, y + excessySIZE + j)){
                     collision = true;
                     j = ySIZE;
+                }
+                if(isDoor(x + (excesshalfsxSIZE + xSIZE) + delta * velocity, y + excessySIZE + j)){
+                    levelChange((int)(x + (excesshalfsxSIZE + xSIZE) + delta * velocity), (int)(y + excessySIZE));
+                    collision = true;
                 }
             }
             if(!collision){
