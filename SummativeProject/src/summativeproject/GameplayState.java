@@ -135,9 +135,8 @@ public class GameplayState extends BasicGameState {
                     collision = true;
                     j = xSIZE;
                 }
-                if(isDoor(x + excesshalfsxSIZE + j, y + excessySIZE - delta * velocity)){
+                if(isDoor(x + excesshalfsxSIZE + j, y + excessySIZE + ySIZE + delta * velocity)){
                     levelChange((int)(x + excesshalfsxSIZE + j), (int)(y + excessySIZE - delta * velocity));
-                    collision = true;
                 }
             }
             if(!collision){
@@ -155,9 +154,8 @@ public class GameplayState extends BasicGameState {
                     collision = true;
                     j = SIZE;
                 }
-                if(isDoor(x + excesshalfsxSIZE + j, y + excessySIZE + ySIZE + delta * velocity)){
+                if(isDoor(x + excesshalfsxSIZE + j, y + excessySIZE - delta * velocity)){
                     levelChange((int)(x + excesshalfsxSIZE), (int)(y + excessySIZE + ySIZE + delta * velocity));
-                    collision = true;
                 }
             }
             if(!collision){
@@ -175,9 +173,8 @@ public class GameplayState extends BasicGameState {
                     collision = true;
                     j = ySIZE;
                 }
-                if(isDoor(x + excesshalfsxSIZE - delta * velocity, y + excessySIZE + j)){
+                if(isDoor(x + (excesshalfsxSIZE + xSIZE) + delta * velocity, y + excessySIZE + j)){
                     levelChange((int)(x + excesshalfsxSIZE - delta * velocity), (int)(y + excessySIZE));
-                    collision = true;
                 }
             }
             if(!collision){
@@ -195,9 +192,8 @@ public class GameplayState extends BasicGameState {
                     collision = true;
                     j = ySIZE;
                 }
-                if(isDoor(x + (excesshalfsxSIZE + xSIZE) + delta * velocity, y + excessySIZE + j)){
+                if(isDoor(x + excesshalfsxSIZE - delta * velocity, y + excessySIZE + j)){
                     levelChange((int)(x + (excesshalfsxSIZE + xSIZE) + delta * velocity), (int)(y + excessySIZE));
-                    collision = true;
                 }
             }
             if(!collision){
