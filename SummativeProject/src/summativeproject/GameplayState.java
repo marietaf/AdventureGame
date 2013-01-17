@@ -31,9 +31,11 @@ public class GameplayState extends BasicGameState {
 
     //initializes the animation for the sprite
     private Animation sprite, up, down, left, right;
+    private Animation monster1, monster1up, monster1down, monster1left, monster1right;
 
     //position of the sprite - initial at (x,y)
     private float x = 224f, y = 96f;
+    private float monst1x = 224f, monst1y = 160f;
 
     //Tile size is 32x32
     private static final int SIZE = 32;
@@ -63,6 +65,10 @@ public class GameplayState extends BasicGameState {
         Image [] movementDown = {new Image("data/char2_fr1.gif"), new Image("data/char2_fr2.gif")};
         Image [] movementLeft = {new Image("data/char2_lf1.gif"), new Image("data/char2_lf2.gif")};
         Image [] movementRight = {new Image("data/char2_rt1.gif"), new Image("data/char2_rt2.gif")};
+        Image [] monster1UP = {new Image("data/char_bk1.gif"), new Image("data/char_bk2.gif")};
+        Image [] monster1DOWN = {new Image("data/char_fr1.gif"), new Image("data/char_fr2.gif")};
+        Image [] monster1LEFT = {new Image("data/char_lf1.gif"), new Image("data/char_lf2.gif")};
+        Image [] monster1RIGHT = {new Image("data/char_rt1.gif"), new Image("data/char_rt2.gif")};
         //the time between updates on sprites
         int [] duration = {300, 300};
 
@@ -72,8 +78,14 @@ public class GameplayState extends BasicGameState {
         down = new Animation(movementDown, duration, false);
         left = new Animation(movementLeft, duration, false);
         right = new Animation(movementRight, duration, false);
+        monster1up = new Animation(monster1UP, duration, true);
+        monster1down = new Animation(monster1DOWN, duration, true);
+        monster1left = new Animation(monster1LEFT, duration, true);
+        monster1right = new Animation(monster1RIGHT, duration, true);
+
         //tells what the original postition of the sprite is
         sprite = down;
+        monster1 = monster1down;
     }
 
     public String getProperty(String name, int x, int y){
@@ -111,6 +123,8 @@ public class GameplayState extends BasicGameState {
     //updates the game when it gets input from user
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
         Input input = container.getInput();
+
+        //SPRITE MOVEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //xSIZE means sprite width
         //excesshalfsxSIZE means the sides of the sprite image (since it all has to equal 32px)
         int xSIZE = 18;
@@ -201,6 +215,24 @@ public class GameplayState extends BasicGameState {
                 x += delta * velocity;
             }
         }
+
+        //MONSTER MOVEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        if(monst1x < x){
+            monster1 = monster1right;
+            monst1x += 0.1;
+        }
+        if(monst1x > x){
+            monster1 = monster1left;
+            monst1x -= 0.1;
+        }
+        if(monst1y < y){
+            monster1 = monster1down;
+            monst1y += 0.1;
+        }
+        if(monst1y > y){
+            monster1 = monster1up;
+            monst1y -= 0.1;
+        }
     }
 
     //renders the new updates on the screen
@@ -208,5 +240,6 @@ public class GameplayState extends BasicGameState {
     public void render(GameContainer container, StateBasedGame sbg, Graphics grphcs) throws SlickException {
         map.render(0, 0);
         sprite.draw((int)x, (int)y);
+        monster1.draw((int)monst1x, (int)monst1y);
     }
 }
