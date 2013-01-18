@@ -40,6 +40,8 @@ public class GameplayState extends BasicGameState {
     //Tile size is 32x32
     private static final int SIZE = 32;
 
+    public static long startTime;
+
     public GameplayState(int stateID){
         this.stateID = stateID;
     }
@@ -47,6 +49,20 @@ public class GameplayState extends BasicGameState {
     @Override
     public int getID() {
         return 1;
+    }
+
+    private void gameOver(StateBasedGame sbg){
+        levelID = "1";
+        map = levelMap[1];
+        sprite = down;
+        monster1 = monster1down;
+        x = 224;
+        y = 96;
+        monst1x = 224;
+        monst1y = 160;
+
+        startTime = System.currentTimeMillis();
+        sbg.enterState(2);
     }
 
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
@@ -135,103 +151,103 @@ public class GameplayState extends BasicGameState {
         int excessySIZE = 10;
         boolean collision = false;
         //the lower the delta the slower the sprite will update
-        //velocity = velocity (f means float, which is half a double)
-        float velocity = 0.1f;
-        //(x or y) - delta * velocity is a way of making up for the difference in
+        //speed = speed (f means float, which is half a double)
+        float speed = 0.1f;
+        //(x or y) - delta * speed is a way of making up for the difference in
         //  update times so that when there is a larger gap (larger delta) then
-        //  the velocity will be sped up to compensate for this difference.
+        //  the speed will be sped up to compensate for this difference.
         if(input.isKeyDown(Input.KEY_UP)){
             sprite = up;
             //check space in front and to the side of sprite in case the wall is connected to another wall
             for(int j = 0; j < xSIZE; j++){
                 //check x+i because it checks from top left of sprite, which may miss walls to the right of it
-                if(isBlocked(x + excesshalfsxSIZE + j, y + excessySIZE - delta * velocity)){
+                if(isBlocked(x + excesshalfsxSIZE + j, y + excessySIZE - delta * speed)){
                     collision = true;
                     j = xSIZE;
                 }
-                if(isDoor(x + excesshalfsxSIZE + j, y + excessySIZE + ySIZE + delta * velocity)){
-                    levelChange((int)(x + excesshalfsxSIZE + j), (int)(y + excessySIZE - delta * velocity));
+                if(isDoor(x + excesshalfsxSIZE + j, y + excessySIZE + ySIZE + delta * speed)){
+                    levelChange((int)(x + excesshalfsxSIZE + j), (int)(y + excessySIZE - delta * speed));
                 }
             }
             if(!collision){
                 sprite.update(delta);
-                y -= delta * velocity;
+                y -= delta * speed;
             }
         }
         else if(input.isKeyDown(Input.KEY_DOWN)){
             sprite = down;
-            if(!isBlocked(x + excesshalfsxSIZE, y + excessySIZE + ySIZE + delta * velocity)){
+            if(!isBlocked(x + excesshalfsxSIZE, y + excessySIZE + ySIZE + delta * speed)){
                 collision = false;
             }
             for(int j = 0; j < xSIZE; j++){
-                if(isBlocked(x + excesshalfsxSIZE + j, y + excessySIZE + ySIZE + delta * velocity)){
+                if(isBlocked(x + excesshalfsxSIZE + j, y + excessySIZE + ySIZE + delta * speed)){
                     collision = true;
                     j = SIZE;
                 }
-                if(isDoor(x + excesshalfsxSIZE + j, y + excessySIZE - delta * velocity)){
-                    levelChange((int)(x + excesshalfsxSIZE), (int)(y + excessySIZE + ySIZE + delta * velocity));
+                if(isDoor(x + excesshalfsxSIZE + j, y + excessySIZE - delta * speed)){
+                    levelChange((int)(x + excesshalfsxSIZE), (int)(y + excessySIZE + ySIZE + delta * speed));
                 }
             }
             if(!collision){
                 sprite.update(delta);
-                y += delta * velocity;
+                y += delta * speed;
             }
         }
         else if(input.isKeyDown(Input.KEY_LEFT)){
             sprite = left;
-            if(!isBlocked(x + excesshalfsxSIZE - delta * velocity, y + excessySIZE)){
+            if(!isBlocked(x + excesshalfsxSIZE - delta * speed, y + excessySIZE)){
                 collision = false;
             }
             for(int j = 0; j < ySIZE; j++){
-                if(isBlocked(x + excesshalfsxSIZE - delta * velocity, y + excessySIZE + j)){
+                if(isBlocked(x + excesshalfsxSIZE - delta * speed, y + excessySIZE + j)){
                     collision = true;
                     j = ySIZE;
                 }
-                if(isDoor(x + (excesshalfsxSIZE + xSIZE) + delta * velocity, y + excessySIZE + j)){
-                    levelChange((int)(x + excesshalfsxSIZE - delta * velocity), (int)(y + excessySIZE));
+                if(isDoor(x + (excesshalfsxSIZE + xSIZE) + delta * speed, y + excessySIZE + j)){
+                    levelChange((int)(x + excesshalfsxSIZE - delta * speed), (int)(y + excessySIZE));
                 }
             }
             if(!collision){
                 sprite.update(delta);
-                x -= delta * velocity;
+                x -= delta * speed;
             }
         }
         else if(input.isKeyDown(Input.KEY_RIGHT)){
             sprite = right;
-            if(!isBlocked(x + (excesshalfsxSIZE + xSIZE) + delta * velocity, y + excessySIZE)){
+            if(!isBlocked(x + (excesshalfsxSIZE + xSIZE) + delta * speed, y + excessySIZE)){
                 collision = false;
             }
             for (int j = 0; j < ySIZE; j++){
-                if(isBlocked(x + (excesshalfsxSIZE + xSIZE) + delta * velocity, y + excessySIZE + j)){
+                if(isBlocked(x + (excesshalfsxSIZE + xSIZE) + delta * speed, y + excessySIZE + j)){
                     collision = true;
                     j = ySIZE;
                 }
-                if(isDoor(x + excesshalfsxSIZE - delta * velocity, y + excessySIZE + j)){
-                    levelChange((int)(x + (excesshalfsxSIZE + xSIZE) + delta * velocity), (int)(y + excessySIZE));
+                if(isDoor(x + excesshalfsxSIZE - delta * speed, y + excessySIZE + j)){
+                    levelChange((int)(x + (excesshalfsxSIZE + xSIZE) + delta * speed), (int)(y + excessySIZE));
                 }
             }
             if(!collision){
                 sprite.update(delta);
-                x += delta * velocity;
+                x += delta * speed;
             }
         }
 
         //MONSTER MOVEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         if(monst1x < x){
             monster1 = monster1right;
-            monst1x += 0.1;
+            monst1x += 0.5;
         }
         if(monst1x > x){
             monster1 = monster1left;
-            monst1x -= 0.1;
+            monst1x -= 0.5;
         }
         if(monst1y < y){
             monster1 = monster1down;
-            monst1y += 0.1;
+            monst1y += 0.5;
         }
         if(monst1y > y){
             monster1 = monster1up;
-            monst1y -= 0.1;
+            monst1y -= 0.5;
         }
     }
 

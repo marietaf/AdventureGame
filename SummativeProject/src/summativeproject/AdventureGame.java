@@ -18,19 +18,22 @@ public class AdventureGame extends StateBasedGame{
 
     public static final int menu = 0;
     public static final int play = 1;
+    public static final int gameover = 2;
 
     //sets the title to Adventure Game
     public AdventureGame(){
         super("Adventure Game");
         this.addState(new MainMenuState(menu));
         this.addState(new GameplayState(play));
+        this.addState(new GameOverState(gameover));
+
     }
 
     public void initStatesList(GameContainer container) throws SlickException {
         this.getState(menu) .init(container, this);
         this.getState(play) .init(container, this);
+        this.getState(gameover) .init(container, this);
         this.enterState(menu);
-
     }
 
     public static void main(String[] args) {
@@ -38,6 +41,8 @@ public class AdventureGame extends StateBasedGame{
         try{
             AppGameContainer app = new AppGameContainer(new AdventureGame());
             app.setDisplayMode(480, 480, false);
+            app.setTargetFrameRate(60);
+            //app.setShowFPS(false);
             app.start();
         }
         catch(SlickException e){
