@@ -85,7 +85,7 @@ public class CollisionEvent {
         return collisionType;
     }
 
-    private static String getProperty(String name, int tileNumX, int tileNumY, TiledMap map){
+    public static String getProperty(String name, int tileNumX, int tileNumY, TiledMap map){
         return map.getTileProperty(map.getTileId(tileNumX, tileNumY, 0), name, "null");
     }
 
@@ -95,10 +95,6 @@ public class CollisionEvent {
 
     private static boolean isDoor(float x, float y, TiledMap map){
         return getProperty("door", (int) x / CommonCode.MAX_SIZE, (int) y / CommonCode.MAX_SIZE, map).equals("true");
-    }
-
-    public NextLevelInformation GetNextLevelInfo(){
-        return nextLevelInfo;
     }
 
 }

@@ -66,6 +66,10 @@ public class GameplayState extends BasicGameState {
     }
 
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
+        //INITIALIZE ALL ENTITIES and levels!
+        //set defaults
+
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //starts on level 1
         levelID = "1";
 
@@ -74,11 +78,6 @@ public class GameplayState extends BasicGameState {
         levelMap[0] = new TiledMap("data/testmap.tmx");
         levelMap[1] = new TiledMap("data/testmap2.tmx");
         levelMap[2] = new TiledMap("data/testmap3.tmx");
-// FHAKHFSDHFKHKDSHFKJDSKJFKDSJHFKJSDHFKJDSHFKJHDSKJFHKDSJHFKJSDHKFHKDJSHFKDHSJFHDSKJFHKJDSHFJKDHSFKJHDSKJFHKJDSHFKJSDHFKJSD
-        System.out.println( "Number of obj groups: " + map.getObjectGroupCount() );
-        System.out.println( "Number of objs in group 0: " + map.getObjectCount( 0 ) );
-        System.out.println( "Obj (0,0)'s X: " + map.getObjectX(0, 0) );
-        System.out.println( "Obj (0,0)'s Y: " + map.getObjectY(0, 0) );
 
         //initialize images for the game
         //images for sprite
@@ -91,7 +90,6 @@ public class GameplayState extends BasicGameState {
         Image [] enemy1LEFT = {new Image("data/char_lf1.gif"), new Image("data/char_lf2.gif")};
         Image [] enemy1RIGHT = {new Image("data/char_rt1.gif"), new Image("data/char_rt2.gif")};
 
-        //Anim enemy = new Anim( "anim/enemy/" );
         //the time between updates on sprites
         int [] duration = {300, 300};
 
@@ -143,9 +141,14 @@ public class GameplayState extends BasicGameState {
     //@Override = Annotation that says it is overriding/changing method of a parent class
     //updates the game when it gets input from user
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
+        //KEY BINDINGS to PlayerInteraction.HandleEvents()
+        // check if needs to change levels SwitchLevel();
+        //if true, then GetCurrentLevel();
+
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         Input input = container.getInput();
 
-        //SPRITE MOVEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //SPRITE MOVEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~
         //xSIZE is sprite width
         //excesshalfsxSIZE is the sides of the sprite image (since it has to equal 32px)
         int xSIZE = 18;
@@ -236,7 +239,7 @@ public class GameplayState extends BasicGameState {
             }
         }
 
-        //enemy MOVEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //enemy MOVEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         float enemySpeed = 0.5f;
 
         if(enemy1x < x){
@@ -259,9 +262,11 @@ public class GameplayState extends BasicGameState {
 
     @Override
     public void render(GameContainer container, StateBasedGame sbg, Graphics grphcs) throws SlickException {
+        //world.render();
+
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         map.render(0, 0);
         sprite.draw((int)x, (int)y);
         enemy1.draw((int)enemy1x, (int)enemy1y);
-
     }
 }
