@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package summativeproject;
+package states;
 
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
@@ -23,7 +23,7 @@ public class MainMenuState extends BasicGameState {
     Image playGame;
     Image exitGame;
 
-    MainMenuState(int stateID){
+    public MainMenuState(int stateID){
         this.stateID = stateID;
     }
 

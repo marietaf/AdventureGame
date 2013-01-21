@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package summativeproject;
+package states;
 
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
@@ -31,11 +31,11 @@ public class GameplayState extends BasicGameState {
 
     //initializes the animation for the sprite
     private Animation sprite, up, down, left, right;
-    private Animation monster1, monster1up, monster1down, monster1left, monster1right;
+    private Animation enemy1, enemy1up, enemy1down, enemy1left, enemy1right;
 
     //position of the sprite - initial at (x,y)
     private float x = 224f, y = 96f;
-    private float monst1x = 224f, monst1y = 160f;
+    private float enemy1x = 224f, enemy1y = 160f;
 
     //Tile size is 32x32
     private static final int SIZE = 32;
@@ -55,11 +55,11 @@ public class GameplayState extends BasicGameState {
         levelID = "1";
         map = levelMap[1];
         sprite = down;
-        monster1 = monster1down;
+        enemy1 = enemy1down;
         x = 224;
         y = 96;
-        monst1x = 224;
-        monst1y = 160;
+        enemy1x = 224;
+        enemy1y = 160;
 
         startTime = System.currentTimeMillis();
         sbg.enterState(2);
@@ -70,10 +70,15 @@ public class GameplayState extends BasicGameState {
         levelID = "1";
 
         //initilialize maps (map = current map)
-        map = new TiledMap("data/testmap2.tmx");
+        map = new TiledMap("data/testmap3.tmx");
         levelMap[0] = new TiledMap("data/testmap.tmx");
         levelMap[1] = new TiledMap("data/testmap2.tmx");
         levelMap[2] = new TiledMap("data/testmap3.tmx");
+// FHAKHFSDHFKHKDSHFKJDSKJFKDSJHFKJSDHFKJDSHFKJHDSKJFHKDSJHFKJSDHKFHKDJSHFKDHSJFHDSKJFHKJDSHFJKDHSFKJHDSKJFHKJDSHFKJSDHFKJSD
+        System.out.println( "Number of obj groups: " + map.getObjectGroupCount() );
+        System.out.println( "Number of objs in group 0: " + map.getObjectCount( 0 ) );
+        System.out.println( "Obj (0,0)'s X: " + map.getObjectX(0, 0) );
+        System.out.println( "Obj (0,0)'s Y: " + map.getObjectY(0, 0) );
 
         //initialize images for the game
         //images for sprite
@@ -81,27 +86,28 @@ public class GameplayState extends BasicGameState {
         Image [] movementDown = {new Image("data/char2_fr1.gif"), new Image("data/char2_fr2.gif")};
         Image [] movementLeft = {new Image("data/char2_lf1.gif"), new Image("data/char2_lf2.gif")};
         Image [] movementRight = {new Image("data/char2_rt1.gif"), new Image("data/char2_rt2.gif")};
-        Image [] monster1UP = {new Image("data/char_bk1.gif"), new Image("data/char_bk2.gif")};
-        Image [] monster1DOWN = {new Image("data/char_fr1.gif"), new Image("data/char_fr2.gif")};
-        Image [] monster1LEFT = {new Image("data/char_lf1.gif"), new Image("data/char_lf2.gif")};
-        Image [] monster1RIGHT = {new Image("data/char_rt1.gif"), new Image("data/char_rt2.gif")};
+        Image [] enemy1UP = {new Image("data/char_bk1.gif"), new Image("data/char_bk2.gif")};
+        Image [] enemy1DOWN = {new Image("data/char_fr1.gif"), new Image("data/char_fr2.gif")};
+        Image [] enemy1LEFT = {new Image("data/char_lf1.gif"), new Image("data/char_lf2.gif")};
+        Image [] enemy1RIGHT = {new Image("data/char_rt1.gif"), new Image("data/char_rt2.gif")};
+
+        //Anim enemy = new Anim( "anim/enemy/" );
         //the time between updates on sprites
         int [] duration = {300, 300};
 
-        //animations for sprite
         //false means it will only update when the user presses the key
         up = new Animation(movementUp, duration, false);
         down = new Animation(movementDown, duration, false);
         left = new Animation(movementLeft, duration, false);
         right = new Animation(movementRight, duration, false);
-        monster1up = new Animation(monster1UP, duration, true);
-        monster1down = new Animation(monster1DOWN, duration, true);
-        monster1left = new Animation(monster1LEFT, duration, true);
-        monster1right = new Animation(monster1RIGHT, duration, true);
+        enemy1up = new Animation(enemy1UP, duration, true);
+        enemy1down = new Animation(enemy1DOWN, duration, true);
+        enemy1left = new Animation(enemy1LEFT, duration, true);
+        enemy1right = new Animation(enemy1RIGHT, duration, true);
 
         //tells what the original postition of the sprite is
         sprite = down;
-        monster1 = monster1down;
+        enemy1 = enemy1down;
     }
 
     public String getProperty(String name, int x, int y){
@@ -118,7 +124,6 @@ public class GameplayState extends BasicGameState {
         return getProperty("door", (int) x / SIZE, (int) y / SIZE).equals("true");
     }
 
-    //change the level once a door or passageway is reached (collided with)
     public void levelChange(int xPos, int yPos) throws SlickException{
         //get the levelID from the .tmx file (which level it will be going to)
         levelID = map.getTileProperty(map.getTileId((xPos / SIZE), (yPos / SIZE), 0), "levelID", "0");
@@ -141,24 +146,23 @@ public class GameplayState extends BasicGameState {
         Input input = container.getInput();
 
         //SPRITE MOVEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        //xSIZE means sprite width
-        //excesshalfsxSIZE means the sides of the sprite image (since it all has to equal 32px)
+        //xSIZE is sprite width
+        //excesshalfsxSIZE is the sides of the sprite image (since it has to equal 32px)
         int xSIZE = 18;
         int excesshalfsxSIZE = 7;
-        //ySIZE means sprite height
+        //ySIZE is sprite height
         //excessySIZE is the 10 other pixels above the sprite's original size (since it has to equal 32px)
         int ySIZE = 22;
         int excessySIZE = 10;
         boolean collision = false;
         //the lower the delta the slower the sprite will update
-        //speed = speed (f means float, which is half a double)
         float speed = 0.1f;
-        //(x or y) - delta * speed is a way of making up for the difference in
+        //((x or y) - delta * speed) is a way of making up for the difference in
         //  update times so that when there is a larger gap (larger delta) then
-        //  the speed will be sped up to compensate for this difference.
+        //  the speed will be greater to compensate for this difference.
         if(input.isKeyDown(Input.KEY_UP)){
             sprite = up;
-            //check space in front and to the side of sprite in case the wall is connected to another wall
+            //check space in front of sprite for different tile properties
             for(int j = 0; j < xSIZE; j++){
                 //check x+i because it checks from top left of sprite, which may miss walls to the right of it
                 if(isBlocked(x + excesshalfsxSIZE + j, y + excessySIZE - delta * speed)){
@@ -232,30 +236,32 @@ public class GameplayState extends BasicGameState {
             }
         }
 
-        //MONSTER MOVEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        if(monst1x < x){
-            monster1 = monster1right;
-            monst1x += 0.5;
+        //enemy MOVEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        float enemySpeed = 0.5f;
+
+        if(enemy1x < x){
+            enemy1 = enemy1right;
+            enemy1x += enemySpeed;
         }
-        if(monst1x > x){
-            monster1 = monster1left;
-            monst1x -= 0.5;
+        if(enemy1x > x){
+            enemy1 = enemy1left;
+            enemy1x -= enemySpeed;
         }
-        if(monst1y < y){
-            monster1 = monster1down;
-            monst1y += 0.5;
+        if(enemy1y < y){
+            enemy1 = enemy1down;
+            enemy1y += enemySpeed;
         }
-        if(monst1y > y){
-            monster1 = monster1up;
-            monst1y -= 0.5;
+        if(enemy1y > y){
+            enemy1 = enemy1up;
+            enemy1y -= enemySpeed;
         }
     }
 
-    //renders the new updates on the screen
     @Override
     public void render(GameContainer container, StateBasedGame sbg, Graphics grphcs) throws SlickException {
         map.render(0, 0);
         sprite.draw((int)x, (int)y);
-        monster1.draw((int)monst1x, (int)monst1y);
+        enemy1.draw((int)enemy1x, (int)enemy1y);
+
     }
 }

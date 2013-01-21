@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package summativeproject;
+package states;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -19,7 +19,7 @@ public class GameOverState extends BasicGameState {
 
     int stateID = 2;
 
-    GameOverState(int stateID) {
+    public GameOverState(int stateID) {
         this.stateID = stateID;
     }
 
