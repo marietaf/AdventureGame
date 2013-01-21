@@ -18,46 +18,47 @@ public class CollisionEvent {
     CommonCode.CharacterDirection currentDirection;
     Character character;
     NextLevelInformation nextLevelInfo;
-    boolean collision;
+    CommonCode.CollisionType collisionType;
 
-    public static boolean CheckForCollision(entities.Character character, TiledMap map) {
+    public static CommonCode.CollisionType CheckForCollision(entities.Character character, TiledMap map) {
         Rectangle collisionBox = character.GetCollisionBox();
         float speed = character.GetCharacterStats().GetSpeed();
-        CommonCode.CollisionType collisionType;
+        int i = 0;
+        CommonCode.CollisionType collisionType = CommonCode.CollisionType.NoCollision;
         switch(character.GetCharacterDirection()){
             case Up:
                 collisionType = CheckDirectionSpecificCollision(collisionBox.getWidth(),
-                        collisionBox.getX(),
+                        collisionBox.getX() + i,
                         collisionBox.getY() - speed,
-                        collisionBox.getX(),
+                        collisionBox.getX() + i,
                         collisionBox.getY() + collisionBox.getHeight() - speed,
                         map);
                 break;
 
             case Down:
                 collisionType = CheckDirectionSpecificCollision(collisionBox.getWidth(),
-                        collisionBox.getX(),
+                        collisionBox.getX() + i,
                         collisionBox.getY() + collisionBox.getHeight() + speed,
-                        collisionBox.getX(),
+                        collisionBox.getX() + i,
                         collisionBox.getY() + speed,
                         map);
                 break;
 
             case Left:
                 collisionType = CheckDirectionSpecificCollision(collisionBox.getHeight(),
-                        collisionBox.getX(),
-                        collisionBox.getY() - speed,
-                        collisionBox.getX(),
-                        collisionBox.getY() + collisionBox.getHeight() - speed,
+                        collisionBox.getX() - speed,
+                        collisionBox.getY() + i,
+                        collisionBox.getX() + collisionBox.getWidth() - speed,
+                        collisionBox.getY() + i,
                         map);
                 break;
 
             case Right:
                 collisionType = CheckDirectionSpecificCollision(collisionBox.getHeight(),
-                        collisionBox.getX(),
-                        collisionBox.getY() - speed,
-                        collisionBox.getX(),
-                        collisionBox.getY() + collisionBox.getHeight() - speed,
+                        collisionBox.getX() + collisionBox.getWidth() + speed,
+                        collisionBox.getY() + i,
+                        collisionBox.getX() + speed,
+                        collisionBox.getY() + i,
                         map);
                 break;
 
@@ -65,7 +66,7 @@ public class CollisionEvent {
                 //do nothing
                 break;
         }
-        return collision;
+        return collisionType;
     }
 
     public static CommonCode.CollisionType CheckDirectionSpecificCollision( float collisionDimension, float collisionX, float collisionY, float doorX, float doorY, TiledMap map){
