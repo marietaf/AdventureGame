@@ -74,10 +74,9 @@ public class GameplayState extends BasicGameState {
         levelID = "1";
 
         //initilialize maps (map = current map)
-        map = new TiledMap("data/testmap3.tmx");
-        levelMap[0] = new TiledMap("data/testmap.tmx");
-        levelMap[1] = new TiledMap("data/testmap2.tmx");
-        levelMap[2] = new TiledMap("data/testmap3.tmx");
+        map = new TiledMap("data/room1.tmx");
+        levelMap[0] = new TiledMap("data/room1.tmx");
+        levelMap[1] = new TiledMap("data/Map1.tmx");
 
         //initialize images for the game
         //images for sprite
@@ -127,14 +126,14 @@ public class GameplayState extends BasicGameState {
         levelID = map.getTileProperty(map.getTileId((xPos / SIZE), (yPos / SIZE), 0), "levelID", "0");
         //switch map depending on levelID and x and y starting coordinates
         if(levelID.equals("1")){
-            map = levelMap[1];
-            x = 224;
+            map = levelMap[0];
+            x = 128;
             y = 384;
         }
         else if(levelID.equals("2")){
-           map = levelMap[2];
-           x = 224;
-           y = 416;
+           map = levelMap[1];
+           x = 160;
+           y = 96;
         }
     }
 

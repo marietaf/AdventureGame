@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="15" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tilesetformattedupdate1_0" tilewidth="32" tileheight="32">
+  <image source="../GitHub/AdventureGame/SummativeProject/data/textures/8-bit_tileset2/tilesetformattedupdate1_0.png" width="576" height="384"/>
+ </tileset>
+ <tileset firstgid="217" name="beige block" tilewidth="32" tileheight="32">
+  <image source="../GitHub/AdventureGame/SummativeProject/data/textures/beige block.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="218" name="Doors" tilewidth="32" tileheight="32">
+  <image source="../GitHub/AdventureGame/SummativeProject/data/textures/AyenesTextures/Door4.png" width="384" height="512"/>
+ </tileset>
+ <tileset firstgid="410" name="Door2" tilewidth="32" tileheight="32">
+  <image source="../GitHub/AdventureGame/SummativeProject/data/textures/AyenesTextures/Door1.png" width="384" height="256"/>
+  <tile id="52">
+   <properties>
+    <property name="door" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Main Layer" width="15" height="15">
+  <properties>
+   <property name="levelID" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzzZGBg8CIDewMx+ygexaMYjPPw4Jt45PKBGAAPaxCK
+  </data>
+ </layer>
+ <layer name="Side Walls" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAfRJOpL3ZU76jeYaaXEgAAgPwJWQ==
+  </data>
+ </layer>
+ <layer name="Bed" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhY4EuB3niquWIUjIKBAwDz/wCt
+  </data>
+ </layer>
+ <layer name="Book Shelf" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAOFABxIRJNCMxGYjcBcTMSTS9wEIgPQfFhEvVeBuIrUHyVyu4aKUADiDWBWAuI1UnUawXE1kBsA8SWVHbXYAMAl8EMTA==
+  </data>
+ </layer>
+ <layer name="Stuff " width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYGBgOMIAATCaFHANjaY2WIPEXkui3n1AvBqIzwHxfjLsVoViZFACxKVAXEZArzkUI4M2IG4H4g4y3DJcAbHhiQ0MlfA8x4hfHgA2ig7z
+  </data>
+ </layer>
+</map>

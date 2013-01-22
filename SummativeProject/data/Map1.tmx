@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="15" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="town_forest_tiles" tilewidth="32" tileheight="32">
+  <image source="../GitHub/AdventureGame/SummativeProject/data/textures/8-bit_tileset2/town_forest_tiles.png" width="320" height="352"/>
+  <tile id="1">
+   <properties>
+    <property name="TileID" value=""/>
+    <property name="door" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="door" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="111" name="path" tilewidth="32" tileheight="32">
+  <image source="../GitHub/AdventureGame/SummativeProject/data/textures/tileable3k_tile.gif" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="112" name="cave_4" tilewidth="32" tileheight="32">
+  <image source="../GitHub/AdventureGame/SummativeProject/data/textures/8-bit_tileset2/cave_4.png" width="512" height="1024"/>
+ </tileset>
+ <tileset firstgid="624" name="desert_2" tilewidth="32" tileheight="32">
+  <image source="../GitHub/AdventureGame/SummativeProject/data/textures/8-bit_tileset2/desert_2.png" width="416" height="768"/>
+ </tileset>
+ <tileset firstgid="936" name="grass" tilewidth="32" tileheight="32">
+  <image source="../GitHub/AdventureGame/SummativeProject/data/textures/tileable-img_0062-lush.png" width="1024" height="1024"/>
+ </tileset>
+ <layer name="Main Layer" width="15" height="15">
+  <properties>
+   <property name="levelID" value="2"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJy9kUsOgkAQRBt7oqgr4kJFD+DnUF5P9CIqF1G5hDUZOhSTTDQsXLxMVzXFojoTkeyPjGg+q8hSOraggncBVw170ycJWPYGb4V3DUqwAXd4D1Br2JuOs094Y7za4ucXhjdoNOxNx9nciUxd55uegbnr6zi7g7cn/xe4q0qHZbmLVDfcte+eu+IbMZaN/89d8Y34Vpblrhvtd+Xv4uhOfp5IunvL+t0CFPRt0Xqm7RYHcIyy30h1NZQPDNg9hQ==
+  </data>
+ </layer>
+ <layer name="Trees" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAvYCIgbwvEdlhoYoA7EHtgoUfByAM8UIyLjw/EI2F6AABRowRu
+  </data>
+ </layer>
+ <layer name="Bushes" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFwwkoArESECuToVcbiHWAWJcMvaZAbAbE5mTopTaIB2JhKIYBdD4+vTBMLwAAIxEDVQ==
+  </data>
+ </layer>
+</map>
