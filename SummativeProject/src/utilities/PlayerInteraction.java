@@ -22,24 +22,28 @@ public class PlayerInteraction {
         this.level = level;
     }
 
-    public void HandleEvents(int key){
+    public void HandleEvents(int key, long delta){
 
         //Change player direction depending on key being pressed
         switch(key){
             case Input.KEY_UP:
                 level.player.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Up);
+                level.player.update(delta);
                 break;
 
             case Input.KEY_DOWN:
                 level.player.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Down);
+                level.player.update(delta);
                 break;
 
             case Input.KEY_LEFT:
                 level.player.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Left);
+                level.player.update(delta);
                 break;
 
             case Input.KEY_RIGHT:
                 level.player.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Right);
+                level.player.update(delta);
                 break;
         }
 
@@ -69,20 +73,20 @@ public class PlayerInteraction {
                 float doorX = -1, doorY = -1, startX, startY;
                 String levelID;
                 if(level.player.GetCharacterDirection().equals(CommonCode.CharacterDirection.Up)){
-                    doorX = playerX;
-                    doorY = playerY - 32;
+                    doorX = playerX + 16;
+                    doorY = playerY - 1;
                 }
                 else if(level.player.GetCharacterDirection().equals(CommonCode.CharacterDirection.Down)){
-                    doorX = playerX;
-                    doorY = playerY + 32;
+                    doorX = playerX + 16;
+                    doorY = playerY + 33;
                 }
                 else if(level.player.GetCharacterDirection().equals(CommonCode.CharacterDirection.Left)){
-                    doorX = playerX - 32;
-                    doorY = playerY;
+                    doorX = playerX - 1;
+                    doorY = playerY + 16;
                 }
                 else if(level.player.GetCharacterDirection().equals(CommonCode.CharacterDirection.Right)){
-                    doorX = playerX + 32;
-                    doorY = playerY;
+                    doorX = playerX + 33;
+                    doorY = playerY + 16;
                 }
                 levelID = utilities.CollisionEvent.getProperty("levelID", (int)(doorX / CommonCode.MAX_SIZE), (int)(doorY / CommonCode.MAX_SIZE), level.GetTiledMap());
                 startX = Float.parseFloat( utilities.CollisionEvent.getProperty("startX", (int)(doorX / CommonCode.MAX_SIZE), (int)(doorY / CommonCode.MAX_SIZE), level.GetTiledMap() ) );
@@ -113,7 +117,7 @@ public class PlayerInteraction {
         return nextLevelInfo;
     }
 
-    public boolean SwitchLevel(){
+    public boolean GetSwitchLevel(){
         return switchLevel;
     }
 }

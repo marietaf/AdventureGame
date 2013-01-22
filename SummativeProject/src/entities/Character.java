@@ -15,6 +15,7 @@ import utilities.CommonCode;
 public class Character extends Entity {
 
     Animation animationUp, animationDown, animationLeft, animationRight;
+    protected Animation currentRenderable;
     CommonCode.CharacterDirection currentDirection;
     CharacterStats characterStats;
 
@@ -28,8 +29,14 @@ public class Character extends Entity {
         animationRight = right;
         characterStats = stats;
 
+
+
         currentRenderable = animationDown;
         currentDirection = CommonCode.CharacterDirection.Down;
+    }
+
+    public void update( long deltaT ) {
+        currentRenderable.update( deltaT );
     }
 
     public void ChangeRenderCharacterDirection(CommonCode.CharacterDirection direction) {
@@ -59,6 +66,10 @@ public class Character extends Entity {
     public CommonCode.CharacterDirection GetCharacterDirection() {
         return currentDirection;
     }
+
+    public Animation GetCharacterRenderableDirection(){
+        return currentRenderable;
+    }
     
     public CharacterStats GetCharacterStats(){
         return characterStats.Clone();
@@ -67,6 +78,7 @@ public class Character extends Entity {
     public void MoveUp(){
         y -= characterStats.GetSpeed();
         collisionBox.setY(collisionBox.getY() - characterStats.GetSpeed());
+        //currentRenderable.update(delta);
     }
 
     public void MoveDown(){
@@ -82,6 +94,10 @@ public class Character extends Entity {
     public void MoveRight(){
         x += characterStats.GetSpeed();
         collisionBox.setX(collisionBox.getX() + characterStats.GetSpeed());
+    }
+
+    public void Render() {
+        currentRenderable.draw(x, y);
     }
 
 }

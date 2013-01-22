@@ -11,54 +11,60 @@ package utilities;
  */
 public class World {
 
-    Level[] Levels;
+    Level[] levels;
     Level currentLevel;
-    boolean isInitialLevel = true;
     float initialX, initialY;
     PlayerInteraction playerInteraction;
+    NPCInteraction npcInteraction;
+    String initialLevelID;
     //and NPC interaction!
 
-    public World(float initialX, float initialY, Level[] Levels){
-        
+    public World(String initialLevelID, float initialX, float initialY, Level[] levels){
+        this.initialLevelID = initialLevelID;
+        this.initialX = initialX;
+        this.initialY = initialY;
+        this.levels = levels;
     }
 
     public void ChangeCurrentLevel(){
-        DetermineNextLevel();
-        isInitialLevel = false;
-        
-        
-        
-        //after change current level...
+        NextLevelInformation nextLevelInfo = playerInteraction.GetNextLevelInfo();
+
+        for (Level level: levels){
+            if(nextLevelInfo.GetLevelID().equals(level.GetLevelID())){
+                currentLevel = level;
+                break;
+            }
+        }
+
+        //currentLevel.player.SetX(nextLevelInfo.startX);
+        //currentLevel.player.SetY(nextLevelInfo.startY);
+
+        RenderCurrentLevel(/*nextLevelInfo.GetStartX(), nextLevelInfo.GetStartY()*/);
         playerInteraction = new PlayerInteraction(currentLevel);
+        //npcInteraction = new NPCInteraction(currentLevel);
     }
 
-    private void DetermineNextLevel(){
-        float playerX, playerY;
-        if(isInitialLevel){
-            playerInteraction = new PlayerInteraction(currentLevel);
-            playerX = initialX;
-            playerY = initialY;
-        }
-        else{
-            NextLevelInformation nextLevelInfo = playerInteraction.GetNextLevelInfo();
-            String levelID = nextLevelInfo.GetLevelID();
-            playerX = nextLevelInfo.GetStartX();
-            playerY = nextLevelInfo.GetStartY();
-        }
-
-        RenderCurrentLevel(playerX, playerY);
-    }
-
-    private void RenderCurrentLevel(float playerX, float playerY){
-        currentLevel.Render(playerX, playerY);
+    public void RenderCurrentLevel(){
+        currentLevel.Render();
     }
 
     public Level GetCurrentLevel(){
         return currentLevel;
     }
 
-    public void CheckWorldEvents(){
-        
+    public void UpdateWorld(int key, long delta){
+        playerInteraction.HandleEvents(key,delta);
+        //npcInteraction.HandleEvents();
+        if( playerInteraction.GetSwitchLevel() ){
+            ChangeCurrentLevel();
+        }
+    }
+
+    public void InitializeFirstLevel(){
+        NextLevelInformation initialLevelInfo = new NextLevelInformation(initialLevelID, initialX, initialY);
+        currentLevel = levels[0];
+        RenderCurrentLevel(/*initialLevelInfo.GetStartX(), initialLevelInfo.GetStartY()*/);
+        playerInteraction = new PlayerInteraction(currentLevel);
     }
 
 }

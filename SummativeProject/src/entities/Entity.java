@@ -4,6 +4,7 @@
  */
 package entities;
 
+import org.newdawn.slick.Animation;
 import org.newdawn.slick.Renderable;
 import org.newdawn.slick.geom.Rectangle;
 
@@ -14,7 +15,6 @@ import org.newdawn.slick.geom.Rectangle;
 public class Entity {
 
     protected float x, y;
-    protected Renderable currentRenderable;
     protected Rectangle collisionBox;
 
     public Entity(float x, float y, float colxOffset, float colyOffset, float colWidth, float colHeight) {
@@ -27,7 +27,18 @@ public class Entity {
         return collisionBox;
     }
 
-    public void Render() {
-        currentRenderable.draw(x, y);
+    public float GetX(){
+        return x;
+    }
+
+    public float GetY(){
+        return y;
+    }
+
+    public void SetX(float x){
+        this.x = x;
+    }
+    public void SetY(float y){
+        this.y = y;
     }
 }

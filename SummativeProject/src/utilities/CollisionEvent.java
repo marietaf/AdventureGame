@@ -19,47 +19,51 @@ public class CollisionEvent {
     Character character;
     NextLevelInformation nextLevelInfo;
     CommonCode.CollisionType collisionType;
+    static int i;
 
     public static CommonCode.CollisionType CheckForCollision(entities.Character character, TiledMap map) {
         Rectangle collisionBox = character.GetCollisionBox();
         float speed = character.GetCharacterStats().GetSpeed();
-        int i = 0;
         CommonCode.CollisionType collisionType = CommonCode.CollisionType.NoCollision;
         switch(character.GetCharacterDirection()){
             case Up:
-                collisionType = CheckDirectionSpecificCollision(collisionBox.getWidth(),
-                        collisionBox.getX() + i,
+                for( int i = 0; i < collisionBox.getWidth(); i++ ){
+                collisionType = CheckDirectionSpecificCollision(collisionBox.getX() + i,
                         collisionBox.getY() - speed,
                         collisionBox.getX() + i,
                         collisionBox.getY() + collisionBox.getHeight() - speed,
                         map);
+                }
                 break;
 
             case Down:
-                collisionType = CheckDirectionSpecificCollision(collisionBox.getWidth(),
-                        collisionBox.getX() + i,
+                for( int i = 0; i < collisionBox.getWidth(); i++ ){
+                collisionType = CheckDirectionSpecificCollision(collisionBox.getX() + i,
                         collisionBox.getY() + collisionBox.getHeight() + speed,
                         collisionBox.getX() + i,
                         collisionBox.getY() + speed,
                         map);
+                }
                 break;
 
             case Left:
-                collisionType = CheckDirectionSpecificCollision(collisionBox.getHeight(),
-                        collisionBox.getX() - speed,
+                for( int i = 0; i < collisionBox.getHeight(); i++ ){
+                collisionType = CheckDirectionSpecificCollision(collisionBox.getX() - speed,
                         collisionBox.getY() + i,
                         collisionBox.getX() + collisionBox.getWidth() - speed,
                         collisionBox.getY() + i,
                         map);
+                }
                 break;
 
             case Right:
-                collisionType = CheckDirectionSpecificCollision(collisionBox.getHeight(),
-                        collisionBox.getX() + collisionBox.getWidth() + speed,
+                for( int i = 0; i < collisionBox.getHeight(); i++ ){
+                collisionType = CheckDirectionSpecificCollision(collisionBox.getX() + collisionBox.getWidth() + speed,
                         collisionBox.getY() + i,
                         collisionBox.getX() + speed,
                         collisionBox.getY() + i,
                         map);
+                }
                 break;
 
             default:
@@ -69,9 +73,8 @@ public class CollisionEvent {
         return collisionType;
     }
 
-    public static CommonCode.CollisionType CheckDirectionSpecificCollision( float collisionDimension, float collisionX, float collisionY, float doorX, float doorY, TiledMap map){
+    public static CommonCode.CollisionType CheckDirectionSpecificCollision( float collisionX, float collisionY, float doorX, float doorY, TiledMap map){
         CommonCode.CollisionType collisionType = CommonCode.CollisionType.NoCollision;
-        for (int i = 0; i < collisionDimension; i++){
             if ( isBlocked( collisionX, collisionY, map ) ){
                 collisionType = CommonCode.CollisionType.Blocked;
             }
@@ -81,12 +84,11 @@ public class CollisionEvent {
             if ( isDoor( doorX, doorY, map ) ){
                 collisionType = CommonCode.CollisionType.Door;
             }
-        }
         return collisionType;
     }
 
     public static String getProperty(String name, int tileNumX, int tileNumY, TiledMap map){
-        return map.getTileProperty(map.getTileId(tileNumX, tileNumY, 0), name, "null");
+        return map.getTileProperty(map.getTileId(tileNumX, tileNumY, 0), name, "noproperty");
     }
 
     private static boolean isBlocked(float x, float y, TiledMap map){

@@ -30,7 +30,8 @@ public class Level {
         this.player = player;
     }
 
-    public void Render(float playerX, float playerY){
+    public void Render(){
+        map.render(0, 0);
         for(Item i: items){
             i.Render();
         }
@@ -40,7 +41,7 @@ public class Level {
         for(Friendly i: friendlies){
             i.Render();
         }
-        player.Render();
+        //player.Render();
     }
 
     public TiledMap GetTiledMap(){
@@ -49,5 +50,9 @@ public class Level {
 
     public Player GetPlayer(){
         return player;
+    }
+
+    public String GetLevelID(){
+        return levelID;
     }
 }

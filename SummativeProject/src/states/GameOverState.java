@@ -34,11 +34,11 @@ public class GameOverState extends BasicGameState {
     }
 
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        endTime = System.currentTimeMillis();
-        deltaTime = endTime - GameplayState.startTime;
-        if (deltaTime > 10000){
-            sbg.enterState(0);
-        }
+        //endTime = System.currentTimeMillis();
+        //deltaTime = endTime - GameplayState.startTime;
+        //if (deltaTime > 10000){
+        //    sbg.enterState(0);
+        //}
     }
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {

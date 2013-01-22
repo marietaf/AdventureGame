@@ -299,6 +299,8 @@
    <properties>
     <property name="door" value="true"/>
     <property name="levelID" value="1"/>
+    <property name="startX" value="224"/>
+    <property name="startY" value="384"/>
    </properties>
   </tile>
  </tileset>

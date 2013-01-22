@@ -12,6 +12,7 @@ package utilities;
 public class NextLevelInformation {
     String levelID;
     float startX, startY;
+    NextLevelInformation initialLevelInfo;
 
     public NextLevelInformation(String levelID, float startX, float startY){
         this.levelID = levelID;

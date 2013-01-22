@@ -10,5 +10,14 @@ package utilities;
  * @author root
  */
 public class NPCInteraction {
+    Level level;
+
+    public NPCInteraction(Level level){
+        this.level = level;
+    }
+
+    public void HandleEvents(){
+        
+    }
 
 }
