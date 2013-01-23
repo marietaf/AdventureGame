@@ -9,6 +9,12 @@
  <tileset firstgid="2949" name="tiles3" tilewidth="32" tileheight="32">
   <image source="textures/treasure chest.jpg" width="32" height="32"/>
  </tileset>
+ <tileset firstgid="2950" name="manatree_soruve" tilewidth="32" tileheight="32">
+  <image source="textures/manatree_soruve.png" width="992" height="522"/>
+ </tileset>
+ <tileset firstgid="3446" name="lushgrass" tilewidth="32" tileheight="32">
+  <image source="textures/tileable-img_0062-lush.png" width="1024" height="1024"/>
+ </tileset>
  <layer name="Tile Layer 2" width="15" height="15">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC5WQiQ3CMAxFI9wMAQwCDMIxB9ccXHNwTUElriXarsG3EoNJm1IiPSVy/OzEWcuYDOSg8Oc+OXjJmSFy9xeQBp7AeW14HdBVvuTqPnK29HF77IBBhVsoV2Kyc94QzgiMwcRUu6T+IfsUuTMwBwuw9K72rPJ0fIXcNdiALdipvuFcw3p75B7AEZzA2Y38/baEXF44K15XcAN38ABP7xJ9z1nqSIxJqIy+073CWFMslT1Lzanrl0fQb47d/XpzrHYd+r//wt4L/vuZd4QDAAA=
@@ -16,12 +22,42 @@
  </layer>
  <layer name="Tile Layer 1" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC5XOSU4CYRRF4ReIVikiA9RIMxVFUWMTaWasQAd0W0DjxD2IKKBuwl4xugewQ3ET9oBb8BBMrEAhFMmX/Hnck5TDLOJsMioiDjjhglsaP+3GBT8CTZbY+RFAEKHfVrsJtmkj7KKIIY6EgXaDnd0kMoRhjJi6b/fZzbGfxwIWDbR5dsvsV3DF+9rAN5fYrdOFeZd5P0vrpl1bF9bQ+/+/NqmIrGJN6dxusklhC2lsYwcZZJHDLvaU1vaA2yGOcIwTnOIM57hAHpc6bYFbETe4xR3u8YASHvGEsk77wu0Vb3jHBz7xhQqqqOFbp+1RRXqhQEUf+mHBAKwYhE39a6OIYYybB+OYgBeTmIIP05jBrNrYx/EDbq855IQDAAA=
+   H4sIAAAAAAAAC5XOSU7CcBiG8S802CIOC8EIuHVCwThECjtPoAsBr6DuvIOCA+glnBUjd1Cj4rByWDhs1DhfwSexCUL/JnbxS9qv75M0oIkEq7SISABBhNAq9k0IMZhVhtjGYCKOhNg38T/aMbZJpJDGuIN2mm2TS8QHP5pd/2+XafvY92MAgw7aAu0I+1Hs8Vx08M8ltsNa2YWD1tQqW9X33+0lrnCNG0zoIpOYwi3vd7jHg6KdYTOLDLKYwzwWsIgc8ljS7e0Kt1WsYR0b2MQWtrGDAnYV7T63AxxajnCME5RwijOcK9pHbk94trzgFW94xwc+8aVo3YZIDXSLB7Xwog71aECjUW6TSKGNWzs60IkuhNGNHkQQRa/xs0/jGx7ZZIuEAwAA
   </data>
  </layer>
- <layer name="Tile Layer 3" width="15" height="15">
+ <layer name="Tile Layer 5" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAVDCRRwkC8/gYBefPIbCOjFJ3+BgF588h8I6MUnL8CJXy8heXoBAINa+sGEAwAA
+   H4sIAAAAAAAAC2NgwAQWzPj5+ABILbJ6cvQiY3rpRTeDVL24+LTSOwqGDwAAKb0834QDAAA=
+  </data>
+ </layer>
+ <layer name="grass" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC5XRyVbSYRwG4L/iNtlBpQ0m1wBW2oTXgGZWFlwDljmVXAMgLgDhGhoXNngN2mCTcA3QqD5LDxvP/3fOs3jPed9v8+2cCoJdPvKJz3xhj6984zs/+Mk+Ldp06PKL3/zhL//4zwGHBINB0Ec/EQaIEec0ZzjLEMOc4zwXuMgIlxglQZIUY1zmClcZZ4JrXOcGN7lFmkkyTDHNbWa4wyx3ucd95njAQ7LkyDPPIx6zwBMWWWKZFVZ5yjPWKFCkRJl1Kmxw/KpyjTqbNGjynBe85BWvedOz3ZLf8o73fGCbHXZ7uiddS79Nh27IbSTqf4kRj4bbjuonSJIKuU3rT5JhKuQ2q58jz3zI7Zp+gSIlyqxTYaPnrapco84mDZocATQ/PfWEAwAA
+  </data>
+ </layer>
+ <layer name="floor" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjgHZgKTsDwzIgXg7EK4B4JRCvAuLVQLwGiNcC8TogXs8+cvUCAA9vM5mEAwAA
+  </data>
+ </layer>
+ <layer name="tree" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3LxU0FUBRF0YeO+AXg3gPuPeDeB+494N4D7j3g3gO+GBBeCQy4yUpOcrNDCGEgI4RBhhhmhFHGGGeCSaaYZoafm7XnmGeBRZZYZoVV1lhng82o3bK32WGXPfY54JAjjjnhlLOoPbcvuOSKa2645Y57HnjkieeofbFfeeOdDz6//4kQkkgmhVTSSE/8tpl2FtnkkEse+RRQSBHFlFAatWV2ORVUUkU1NdRSRz0NNNIUtc12C6200U4HnXTRTQ+99NEftf/3t+8LpOsd8IQDAAA=
+  </data>
+ </layer>
+ <layer name="doortotree" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAUwIMJEvl4jCvQGUKB3FAx9AAAjZzLPhAMAAA==
+  </data>
+ </layer>
+ <layer name="columns" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGLmggIN8+QkE9OKT30BALz75CwT04pP/QEAvPnkBTvx6CcmPAtwAAAC4mRKEAwAA
+  </data>
+ </layer>
+ <layer name="chest" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYGSAVu6BdgF2AADT1YuthAMAAA==
   </data>
  </layer>
 </map>

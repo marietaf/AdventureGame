@@ -101,7 +101,7 @@ public class GameplayState extends BasicGameState {
             CharacterStats playerStats = new CharacterStats(1.5f, 3, 1);
             player = new Player("data/char2", duration, 224, 384, 7, 10, 18, 22, playerStats);
             //Enemy
-            CharacterStats enemy1Stats = new CharacterStats(1.5f, 3, 1);
+            CharacterStats enemy1Stats = new CharacterStats(0.7f, 3, 1);
             //enemy1 = new Enemy(enemy1up, enemy1down, enemy1left, enemy1right, 224, 200, 7, 10, 18, 22, enemy1Stats);
             enemy1 = new Enemy("data/char2", duration, 224, 200, 7, 10, 18, 22, enemy1Stats);
             
@@ -144,6 +144,7 @@ public class GameplayState extends BasicGameState {
             
 
         world.InitializeFirstLevel();
+        npcAI = new NPCAI(world.GetCurrentLevel());
             
         
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -173,18 +174,20 @@ public class GameplayState extends BasicGameState {
         // check if needs to change levels SwitchLevel();
         //if true, then GetCurrentLevel();
 
-        
+        npcAI.RunAI(delta);
+        world.UpdateWorld(delta, npcAI);
+
         if(input.isKeyDown(Input.KEY_UP)){
-            world.UpdateWorld(Input.KEY_UP, delta, npcAI);
+            world.UpdatePlayer(Input.KEY_UP, delta);
         }
         else if(input.isKeyDown(Input.KEY_DOWN)){
-            world.UpdateWorld(Input.KEY_DOWN, delta, npcAI);
+            world.UpdatePlayer(Input.KEY_DOWN, delta);
         }
         else if(input.isKeyDown(Input.KEY_LEFT)){
-            world.UpdateWorld(Input.KEY_LEFT, delta, npcAI);
+            world.UpdatePlayer(Input.KEY_LEFT, delta);
         }
         else if(input.isKeyDown(Input.KEY_RIGHT)){
-            world.UpdateWorld(Input.KEY_RIGHT, delta, npcAI);
+            world.UpdatePlayer(Input.KEY_RIGHT, delta);
         }
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -199,8 +202,8 @@ public class GameplayState extends BasicGameState {
     @Override
     public void render(GameContainer container, StateBasedGame sbg, Graphics grphcs) throws SlickException {
         world.RenderCurrentLevel();
-        player.GetCharacterRenderableDirection().draw(player.GetX(), player.GetY());
         enemy1.GetCharacterRenderableDirection().draw(enemy1.GetX(), enemy1.GetY());
+        player.GetCharacterRenderableDirection().draw(player.GetX(), player.GetY());
         
 
         //levels[0].Render();

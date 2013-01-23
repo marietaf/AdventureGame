@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="15" height="15" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="tiles1" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="DONOTUSE" tilewidth="32" tileheight="32">
   <image source="textures/8-bit_tileset2/cave_4.png" width="512" height="1024"/>
  </tileset>
  <tileset firstgid="513" name="tiles2" tilewidth="32" tileheight="32">
@@ -9,6 +9,20 @@
  <tileset firstgid="1413" name="tiles3" tilewidth="32" tileheight="32">
   <image source="textures/treasure chest 2.jpg" width="32" height="32"/>
  </tileset>
+ <tileset firstgid="1414" name="tiles1" tilewidth="32" tileheight="32">
+  <image source="textures/8-bit_tileset2/cave_4.png" width="512" height="1024"/>
+ </tileset>
+ <tileset firstgid="1926" name="tiles1_2" tilewidth="32" tileheight="32">
+  <image source="textures/8-bit_tileset2/cave_4.gif" width="512" height="1024"/>
+ </tileset>
+ <tileset firstgid="2438" name="properties_layer" tilewidth="32" tileheight="32">
+  <image source="textures/properties_layer.jpg" width="480" height="480"/>
+ </tileset>
+ <layer name="properties" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2vjZGBoGyAMAjAanY3MR1eDro5YQAu9uPxFL73EqiHFXmLcQ46biQG43INPPTXtJSVsiE3jhPQCAJUPNMqEAwAA
+  </data>
+ </layer>
  <layer name="Tile Layer 1" width="15" height="15">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACwtnYGCIIANHAnE6EGeQgTNH9Y7qHWZ6y4G4ggxcCcQA8Ig+soQDAAA=
@@ -21,17 +35,7 @@
  </layer>
  <layer name="Tile Layer 3" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGFgwGYk9EYkG4Sloapqw6IeJLYSqXwjFxAJk/cg0sl1TGHCD10DMxcjAwA3EPED8CipeCsRleOwDAQ6g+utA+gYQ3wRidkaIeCsQtxFwswRQ7XOQWlYGhpdAWpwRt/pGNL4GUO13IP0DiH8CsTpUbyFUfjIDJoDJ3Qbi30j4Fh53EgsKCYghu6cITR02t2IDsawIjA7wxS8hvZTYCwMAeKWu8oQDAAA=
-  </data>
- </layer>
- <layer name="Tile Layer 4" width="15" height="15">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYBQMJAAA7Ly31YQDAAA=
-  </data>
- </layer>
- <layer name="Tile Layer 5" width="15" height="15">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYPiDcGYEJhWUMiMwqWAyMwLjAgBSDKjPhAMAAA==
+   H4sIAAAAAAAAC2NgoD6YycrAMAuIZ7MSVjsZif2JnYFhJVDPKiBeDcRf2VHVNGHRDxNbCMRToPRCEtyKrB+ZRrZrCh79r4GYi5GBgRuIeYD4FVS8FIjL8NgHAhxA9deB9A0gvgnE7IwQ8VYgbiPgZgmg2ucgtcBwegmkxRlxq29E42sA1X4H0j+A+CcQq0P1FkLlJzNgApjcbSD+jYRv4XEnsaCQgBiye4rQ1GFzKzYQy4rA6ABf/BLSS4m9MAAAAaTrXIQDAAA=
   </data>
  </layer>
 </map>

@@ -92,7 +92,6 @@ public class Character extends Entity {
     public void MoveUp(){
         y -= characterStats.GetSpeed();
         collisionBox.setY(collisionBox.getY() - characterStats.GetSpeed());
-        //currentRenderable.update(delta);
     }
 
     public void MoveDown(){

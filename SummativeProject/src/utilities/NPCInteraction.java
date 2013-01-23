@@ -6,7 +6,6 @@
 package utilities;
 
 import entities.*;
-import utilities.CommonCode.CharacterDirection;
 
 /**
  *
@@ -15,48 +14,58 @@ import utilities.CommonCode.CharacterDirection;
 public class NPCInteraction {
 
     Level level;
+    CommonCode.CharacterDirection direction;
+    NPCAI npcAI;
 
-    public NPCInteraction(Level level){
+    public NPCInteraction(Level level, NPCAI npcAI){
         this.level = level;
     }
 
-    public void HandleEvents(CharacterDirection direction, long delta){
+    public void HandleEvents(long delta){
         boolean collision;
         for (Enemy enemy: level.enemies){
-            switch(direction){
+            switch(enemy.GetCharacterDirection()){
                 case Up:
-                    collision = CheckNPCCollision(direction, enemy);
-                    if ( collision = false ){
+                    enemy.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Up);
+                    collision = CheckNPCCollision(enemy);
+                    if ( !collision ){
                         enemy.MoveUp();
                     }
+                    enemy.update(delta);
                     break;
 
                 case Down:
-                    collision = CheckNPCCollision(direction, enemy);
-                    if ( collision = false ){
+                    enemy.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Down);
+                    collision = CheckNPCCollision(enemy);
+                    if ( !collision ){
                         enemy.MoveDown();
                     }
+                    enemy.update(delta);
                     break;
 
                 case Left:
-                    collision = CheckNPCCollision(direction, enemy);
-                    if ( collision = false ){
+                    enemy.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Left);
+                    collision = CheckNPCCollision(enemy);
+                    if ( !collision ){
                         enemy.MoveLeft();
                     }
+                    enemy.update(delta);
                     break;
 
                 case Right:
-                    collision = CheckNPCCollision(direction, enemy);
-                    if ( collision = false ){
+                    enemy.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Right);
+                    collision = CheckNPCCollision(enemy);
+                    if ( !collision ){
                         enemy.MoveRight();
                     }
+                    enemy.update(delta);
                     break;
             }
         }
 
     }
 
-    private boolean CheckNPCCollision(CharacterDirection direction, entities.Character character){
+    private boolean CheckNPCCollision(entities.Character character){
         boolean collision;
         switch( utilities.CollisionEvent.CheckForCollision( character, level.GetTiledMap() ) ){
             case NoCollision:

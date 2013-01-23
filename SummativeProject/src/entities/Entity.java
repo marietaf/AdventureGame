@@ -16,7 +16,6 @@ public class Entity {
     protected float x, y;
     protected float colxOffset, colyOffset;
     protected Rectangle collisionBox;
-    PlayerInteraction playerInteraction;
 
     public Entity(float x, float y, float colxOffset, float colyOffset, float colWidth, float colHeight) {
         this.x = x;
