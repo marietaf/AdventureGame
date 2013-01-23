@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="15" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="ss_browncave" tilewidth="32" tileheight="32">
+  <image source="ss_browncave.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="cave_4" tilewidth="32" tileheight="32">
+  <image source="textures/8-bit_tileset2/cave_4.png" width="512" height="1024"/>
+ </tileset>
+ <tileset firstgid="529" name="beige block" tilewidth="32" tileheight="32">
+  <image source="textures/beige block.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="530" name="floor" tilewidth="32" tileheight="32">
+  <image source="textures/floor.jpg" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="531" name="lava2" tilewidth="32" tileheight="32">
+  <image source="textures/lava2.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="532" name="Lava" tilewidth="32" tileheight="32">
+  <image source="textures/Lava.png" width="32" height="32"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC42TwQ2AMAhFmYUd3ESdQB2o127R6TiKSUl+ENDDS5vQJ7RgJ6IesCqbsidxoykM68OhnMqlCMTtDLoCMCBJzLvtJ1VeYwT7KC+7bwvl9WQuB67lw725o3Ci/OLcRnXtvofmYj9wH907cvEd/bsw5bNhbtYrf2+hd81/5mJMvmbDz4nRqP4/lkl15gYDcc3UhAMAAA==
+  </data>
+ </layer>
+</map>

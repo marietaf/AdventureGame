@@ -120,6 +120,7 @@ public class GameplayState extends BasicGameState {
 
         //initilialize maps (map = current map)
 
+
         //initialize images for the game
         //images for sprite
         
