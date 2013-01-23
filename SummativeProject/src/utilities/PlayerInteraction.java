@@ -70,23 +70,24 @@ public class PlayerInteraction {
             case Door:
                 float playerX = level.player.GetCollisionBox().getX();
                 float playerY = level.player.GetCollisionBox().getY();
+                float playerSpeed = level.player.GetCharacterStats().GetSpeed();
                 float doorX = -1, doorY = -1, startX, startY;
                 String levelID;
                 if(level.player.GetCharacterDirection().equals(CommonCode.CharacterDirection.Up)){
-                    doorX = playerX + 16;
-                    doorY = playerY - 1;
+                    doorX = playerX + playerSpeed;
+                    doorY = playerY - playerSpeed;
                 }
                 else if(level.player.GetCharacterDirection().equals(CommonCode.CharacterDirection.Down)){
-                    doorX = playerX + 16;
-                    doorY = playerY + 33;
+                    doorX = playerX + playerSpeed;
+                    doorY = playerY + playerSpeed;
                 }
                 else if(level.player.GetCharacterDirection().equals(CommonCode.CharacterDirection.Left)){
-                    doorX = playerX - 1;
-                    doorY = playerY + 16;
+                    doorX = playerX - playerSpeed;
+                    doorY = playerY + playerSpeed;
                 }
                 else if(level.player.GetCharacterDirection().equals(CommonCode.CharacterDirection.Right)){
-                    doorX = playerX + 33;
-                    doorY = playerY + 16;
+                    doorX = playerX + playerSpeed;
+                    doorY = playerY + playerSpeed;
                 }
                 levelID = utilities.CollisionEvent.getProperty("levelID", (int)(doorX / CommonCode.MAX_SIZE), (int)(doorY / CommonCode.MAX_SIZE), level.GetTiledMap());
                 startX = Float.parseFloat( utilities.CollisionEvent.getProperty("startX", (int)(doorX / CommonCode.MAX_SIZE), (int)(doorY / CommonCode.MAX_SIZE), level.GetTiledMap() ) );

@@ -4,9 +4,8 @@
  */
 package entities;
 
-import org.newdawn.slick.Animation;
-import org.newdawn.slick.Renderable;
 import org.newdawn.slick.geom.Rectangle;
+import utilities.PlayerInteraction;
 
 /**
  *
@@ -15,11 +14,15 @@ import org.newdawn.slick.geom.Rectangle;
 public class Entity {
 
     protected float x, y;
+    protected float colxOffset, colyOffset;
     protected Rectangle collisionBox;
+    PlayerInteraction playerInteraction;
 
     public Entity(float x, float y, float colxOffset, float colyOffset, float colWidth, float colHeight) {
         this.x = x;
         this.y = y;
+        this.colxOffset = colxOffset;
+        this.colyOffset = colyOffset;
         collisionBox = new Rectangle(x + colxOffset, y + colyOffset, colWidth, colHeight);
     }
 
@@ -40,5 +43,20 @@ public class Entity {
     }
     public void SetY(float y){
         this.y = y;
+    }
+
+    public float GetCollisionXOffset(){
+        return colxOffset;
+    }
+
+    public float GetCollisionYOffset(){
+        return colyOffset;
+    }
+
+    public void SetNewCoordinates(float x, float y){
+        this.x = x;
+        this.y = y;
+        this.collisionBox.setX(x + colxOffset);
+        this.collisionBox.setY(y + colyOffset);
     }
 }

@@ -36,8 +36,8 @@ public class World {
             }
         }
 
-        //currentLevel.player.SetX(nextLevelInfo.startX);
-        //currentLevel.player.SetY(nextLevelInfo.startY);
+        currentLevel.player.SetNewCoordinates(playerInteraction.GetNextLevelInfo().GetStartX(),
+                playerInteraction.GetNextLevelInfo().GetStartY());
 
         RenderCurrentLevel(/*nextLevelInfo.GetStartX(), nextLevelInfo.GetStartY()*/);
         playerInteraction = new PlayerInteraction(currentLevel);
@@ -53,7 +53,7 @@ public class World {
     }
 
     public void UpdateWorld(int key, long delta){
-        playerInteraction.HandleEvents(key,delta);
+        playerInteraction.HandleEvents(key, delta);
         //npcInteraction.HandleEvents();
         if( playerInteraction.GetSwitchLevel() ){
             ChangeCurrentLevel();

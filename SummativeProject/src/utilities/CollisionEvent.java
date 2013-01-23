@@ -19,7 +19,7 @@ public class CollisionEvent {
     Character character;
     NextLevelInformation nextLevelInfo;
     CommonCode.CollisionType collisionType;
-    static int i;
+    static float doorX, doorY;
 
     public static CommonCode.CollisionType CheckForCollision(entities.Character character, TiledMap map) {
         Rectangle collisionBox = character.GetCollisionBox();
@@ -28,41 +28,49 @@ public class CollisionEvent {
         switch(character.GetCharacterDirection()){
             case Up:
                 for( int i = 0; i < collisionBox.getWidth(); i++ ){
-                collisionType = CheckDirectionSpecificCollision(collisionBox.getX() + i,
-                        collisionBox.getY() - speed,
-                        collisionBox.getX() + i,
-                        collisionBox.getY() + collisionBox.getHeight() - speed,
-                        map);
+                    if( collisionType == CommonCode.CollisionType.NoCollision){
+                        collisionType = CheckDirectionSpecificCollision(collisionBox.getX() + i,
+                                collisionBox.getY() - speed,
+                                collisionBox.getX() + i,
+                                collisionBox.getY() + collisionBox.getHeight() - speed,
+                                map);
+                    }
                 }
                 break;
 
             case Down:
                 for( int i = 0; i < collisionBox.getWidth(); i++ ){
-                collisionType = CheckDirectionSpecificCollision(collisionBox.getX() + i,
-                        collisionBox.getY() + collisionBox.getHeight() + speed,
-                        collisionBox.getX() + i,
-                        collisionBox.getY() + speed,
-                        map);
+                    if( collisionType == CommonCode.CollisionType.NoCollision){
+                        collisionType = CheckDirectionSpecificCollision(collisionBox.getX() + i,
+                                collisionBox.getY() + collisionBox.getHeight() + speed,
+                                collisionBox.getX() + i,
+                                collisionBox.getY() + speed,
+                                map);
+                    }
                 }
                 break;
 
             case Left:
                 for( int i = 0; i < collisionBox.getHeight(); i++ ){
-                collisionType = CheckDirectionSpecificCollision(collisionBox.getX() - speed,
-                        collisionBox.getY() + i,
-                        collisionBox.getX() + collisionBox.getWidth() - speed,
-                        collisionBox.getY() + i,
-                        map);
+                    if( collisionType == CommonCode.CollisionType.NoCollision){
+                        collisionType = CheckDirectionSpecificCollision(collisionBox.getX() - speed,
+                                collisionBox.getY() + i,
+                                collisionBox.getX() + collisionBox.getWidth() - speed,
+                                collisionBox.getY() + i,
+                                map);
+                    }
                 }
                 break;
 
             case Right:
                 for( int i = 0; i < collisionBox.getHeight(); i++ ){
-                collisionType = CheckDirectionSpecificCollision(collisionBox.getX() + collisionBox.getWidth() + speed,
-                        collisionBox.getY() + i,
-                        collisionBox.getX() + speed,
-                        collisionBox.getY() + i,
-                        map);
+                    if( collisionType == CommonCode.CollisionType.NoCollision){
+                        collisionType = CheckDirectionSpecificCollision(collisionBox.getX() + collisionBox.getWidth() + speed,
+                                collisionBox.getY() + i,
+                                collisionBox.getX() + speed,
+                                collisionBox.getY() + i,
+                                map);
+                    }
                 }
                 break;
 
@@ -75,15 +83,15 @@ public class CollisionEvent {
 
     public static CommonCode.CollisionType CheckDirectionSpecificCollision( float collisionX, float collisionY, float doorX, float doorY, TiledMap map){
         CommonCode.CollisionType collisionType = CommonCode.CollisionType.NoCollision;
-            if ( isBlocked( collisionX, collisionY, map ) ){
-                collisionType = CommonCode.CollisionType.Blocked;
-            }
-            else if ( !isBlocked( collisionX, collisionY, map ) ){
-                collisionType = CommonCode.CollisionType.NoCollision;
-            }
-            if ( isDoor( doorX, doorY, map ) ){
-                collisionType = CommonCode.CollisionType.Door;
-            }
+        if ( isBlocked( collisionX, collisionY, map ) && collisionType.equals(CommonCode.CollisionType.NoCollision) ){
+            collisionType = CommonCode.CollisionType.Blocked;
+        }
+        else if ( !isBlocked( collisionX, collisionY, map ) && collisionType.equals(CommonCode.CollisionType.NoCollision) ){
+            collisionType = CommonCode.CollisionType.NoCollision;
+        }
+        if ( isDoor( doorX, doorY, map ) && collisionType.equals(CommonCode.CollisionType.NoCollision) ){
+            collisionType = CommonCode.CollisionType.Door;
+        }
         return collisionType;
     }
 
