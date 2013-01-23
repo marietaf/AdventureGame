@@ -17,6 +17,8 @@ import org.newdawn.slick.tiled.TiledMap;
 import org.newdawn.slick.Image;
 import utilities.CharacterStats;
 import utilities.Level;
+import utilities.NPCAI;
+import utilities.NPCInteraction;
 import utilities.PlayerInteraction;
 import utilities.World;
 
@@ -35,17 +37,20 @@ public class GameplayState extends BasicGameState {
     public String levelID;
 
     // CHARACTERS ~~~~~~~~
-    private Animation up, down, left, right;
+    private Animation up, down, left, right, enemy1up, enemy1down, enemy1left, enemy1right;
     Player player;
+    Enemy enemy1;
     // LEVELS ~~~~~~~~~~~~
     World world;
     //ADD WHEN ADDING LEVELS
     TiledMap map1, map2;
     Item[] item1;
     Friendly[] friendly1;
-    Enemy[] enemy1;
+    Enemy[] enemyset1, enemyset2;
     Level[] levels;
     PlayerInteraction playerInteraction;
+    NPCInteraction npcInteraction;
+    NPCAI npcAI;
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -94,8 +99,11 @@ public class GameplayState extends BasicGameState {
             left = new Animation(movementLeft, duration, false);
             right = new Animation(movementRight, duration, false);
             CharacterStats playerStats = new CharacterStats(1.5f, 3, 1);
-            player = new Player(up, down, left, right, 224, 384, 7, 10, 18, 22, playerStats);
+            player = new Player("data/char2", duration, 224, 384, 7, 10, 18, 22, playerStats);
             //Enemy
+            CharacterStats enemy1Stats = new CharacterStats(1.5f, 3, 1);
+            //enemy1 = new Enemy(enemy1up, enemy1down, enemy1left, enemy1right, 224, 200, 7, 10, 18, 22, enemy1Stats);
+            enemy1 = new Enemy("data/char2", duration, 224, 200, 7, 10, 18, 22, enemy1Stats);
             
         // LEVELS ~~~~~~~~~~
 
@@ -106,11 +114,13 @@ public class GameplayState extends BasicGameState {
             map1 = new TiledMap("data/testmap2.tmx");
             item1 = new Item[0];
             friendly1 = new Friendly[0];
-            enemy1 = new Enemy[0];
-            levels[0] = new Level("1", map1, item1, enemy1, friendly1, player);
+            enemyset1 = new Enemy[1];
+            enemyset1[0] = enemy1;
+            levels[0] = new Level("1", map1, item1, enemyset1, friendly1, player);
             //LEVEL TWO
             map2 = new TiledMap("data/testmap3.tmx");
-            levels[1] = new Level("2", map2, item1, enemy1, friendly1, player);
+            enemyset2 = new Enemy[0];
+            levels[1] = new Level("2", map2, item1, enemyset2, friendly1, player);
             //LEVEL THREE
 
         world.InitializeFirstLevel();
@@ -143,19 +153,19 @@ public class GameplayState extends BasicGameState {
         // check if needs to change levels SwitchLevel();
         //if true, then GetCurrentLevel();
 
+        
         if(input.isKeyDown(Input.KEY_UP)){
-            world.UpdateWorld(Input.KEY_UP, delta);
+            world.UpdateWorld(Input.KEY_UP, delta, npcAI);
         }
         else if(input.isKeyDown(Input.KEY_DOWN)){
-            world.UpdateWorld(Input.KEY_DOWN, delta);
+            world.UpdateWorld(Input.KEY_DOWN, delta, npcAI);
         }
         else if(input.isKeyDown(Input.KEY_LEFT)){
-            world.UpdateWorld(Input.KEY_LEFT, delta);
+            world.UpdateWorld(Input.KEY_LEFT, delta, npcAI);
         }
         else if(input.isKeyDown(Input.KEY_RIGHT)){
-            world.UpdateWorld(Input.KEY_RIGHT, delta);
+            world.UpdateWorld(Input.KEY_RIGHT, delta, npcAI);
         }
-
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         
@@ -170,6 +180,7 @@ public class GameplayState extends BasicGameState {
     public void render(GameContainer container, StateBasedGame sbg, Graphics grphcs) throws SlickException {
         world.RenderCurrentLevel();
         player.GetCharacterRenderableDirection().draw(player.GetX(), player.GetY());
+        enemy1.GetCharacterRenderableDirection().draw(enemy1.GetX(), enemy1.GetY());
         
 
         //levels[0].Render();

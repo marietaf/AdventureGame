@@ -41,7 +41,7 @@ public class World {
 
         RenderCurrentLevel(/*nextLevelInfo.GetStartX(), nextLevelInfo.GetStartY()*/);
         playerInteraction = new PlayerInteraction(currentLevel);
-        //npcInteraction = new NPCInteraction(currentLevel);
+        npcInteraction = new NPCInteraction(currentLevel);
     }
 
     public void RenderCurrentLevel(){
@@ -52,9 +52,9 @@ public class World {
         return currentLevel;
     }
 
-    public void UpdateWorld(int key, long delta){
+    public void UpdateWorld(int key, long delta, NPCAI npcAI){
         playerInteraction.HandleEvents(key, delta);
-        //npcInteraction.HandleEvents();
+        npcInteraction.HandleEvents(npcAI.GetNPCDirection(), delta);
         if( playerInteraction.GetSwitchLevel() ){
             ChangeCurrentLevel();
         }
@@ -65,6 +65,7 @@ public class World {
         currentLevel = levels[0];
         RenderCurrentLevel(/*initialLevelInfo.GetStartX(), initialLevelInfo.GetStartY()*/);
         playerInteraction = new PlayerInteraction(currentLevel);
+        npcInteraction = new NPCInteraction(currentLevel);
     }
 
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="15" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles1" tilewidth="32" tileheight="32">
+  <image source="textures/8-bit_tileset2/cave_4.png" width="512" height="1024"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles2" tilewidth="32" tileheight="32">
+  <image source="textures/Hyptosis_tilesets/hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="1413" name="tiles3" tilewidth="32" tileheight="32">
+  <image source="textures/treasure chest 2.jpg" width="32" height="32"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACwtnYGCIIANHAnE6EGeQgTNH9Y7qHWZ6y4G4ggxcCcQA8Ig+soQDAAA=
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC7vLwMBwD4jvE0nD2A+A+C0Q70LDu4FYBYhVgVgNiEUYMfEHqF4YmIgFT2LADtD1LsSCFxGplxRASC8+PxDSi88P1HIzKWGMrpeUMKamm9EBIT/g00vIDyC9f4H4HxD/J5KGsRmAaZoXiPmAmJ9IGsYWAGIAOvIjnoQDAAA=
+  </data>
+ </layer>
+ <layer name="Tile Layer 3" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGFgwGYk9EYkG4Sloapqw6IeJLYSqXwjFxAJk/cg0sl1TGHCD10DMxcjAwA3EPED8CipeCsRleOwDAQ6g+utA+gYQ3wRidkaIeCsQtxFwswRQ7XOQWlYGhpdAWpwRt/pGNL4GUO13IP0DiH8CsTpUbyFUfjIDJoDJ3Qbi30j4Fh53EgsKCYghu6cITR02t2IDsawIjA7wxS8hvZTYCwMAeKWu8oQDAAA=
+  </data>
+ </layer>
+ <layer name="Tile Layer 4" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBQMJAAA7Ly31YQDAAA=
+  </data>
+ </layer>
+ <layer name="Tile Layer 5" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYPiDcGYEJhWUMiMwqWAyMwLjAgBSDKjPhAMAAA==
+  </data>
+ </layer>
+</map>

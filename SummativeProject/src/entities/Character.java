@@ -5,6 +5,8 @@
 package entities;
 
 import org.newdawn.slick.Animation;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 import utilities.CharacterStats;
 import utilities.CommonCode;
 
@@ -27,17 +29,29 @@ public class Character extends Entity {
         animationDown = down;
         animationLeft = left;
         animationRight = right;
+        
         characterStats = stats;
-
-
-
         currentRenderable = animationDown;
         currentDirection = CommonCode.CharacterDirection.Down;
     }
 
-    public void update( long deltaT ) {
-        currentRenderable.update( deltaT );
+    public Character( String animPathName, int [] duration, float x, float y, float colxOffset, float colyOffset, float colWidth, float colHeight, CharacterStats stats ) throws SlickException {
+        super(x, y, colxOffset, colyOffset, colWidth, colHeight);
+        animationUp = new Animation(new Image[]{new Image(animPathName + "_bk1.gif"), new Image(animPathName + "_bk2.gif")}, duration, false);
+        animationDown = new Animation(new Image[]{new Image(animPathName + "_fr1.gif"), new Image(animPathName + "_fr2.gif")}, duration, false);
+        animationLeft = new Animation(new Image[]{new Image(animPathName + "_lf1.gif"), new Image(animPathName + "_lf2.gif")}, duration, false);
+        animationRight = new Animation(new Image[]{new Image(animPathName + "_rt1.gif"), new Image(animPathName + "_rt2.gif")}, duration, false);
+        
+        currentRenderable = animationDown;
+        currentDirection = CommonCode.CharacterDirection.Down;
+        characterStats = stats;
     }
+
+    public void update( long delta ) {
+        currentRenderable.update( delta );
+    }
+
+
 
     public void ChangeRenderCharacterDirection(CommonCode.CharacterDirection direction) {
         switch (direction) {

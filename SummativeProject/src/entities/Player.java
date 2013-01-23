@@ -6,6 +6,7 @@
 package entities;
 
 import org.newdawn.slick.Animation;
+import org.newdawn.slick.SlickException;
 import utilities.CharacterStats;
 
 /**
@@ -16,5 +17,9 @@ public class Player extends Character {
     public Player(Animation up, Animation down, Animation left, Animation right,
             float x, float y, float colxOffset, float colyOffset, float colWidth, float colHeight, CharacterStats stats) {
         super(up, down, left, right, x, y, colxOffset, colyOffset, colWidth, colHeight, stats);
+    }
+
+    public Player(String pathName, int [] duration, float x, float y, float colxOffset, float colyOffset, float colWidth, float colHeight, CharacterStats stats) throws SlickException {
+        super(pathName, duration, x, y, colxOffset, colyOffset, colWidth, colHeight, stats);
     }
 }

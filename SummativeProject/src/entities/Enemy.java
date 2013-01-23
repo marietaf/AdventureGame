@@ -6,6 +6,7 @@
 package entities;
 
 import org.newdawn.slick.Animation;
+import org.newdawn.slick.SlickException;
 import utilities.CharacterStats;
 
 /**
@@ -17,4 +18,9 @@ public class Enemy extends NPC {
             float x, float y, float colxOffset, float colyOffset, float colWidth, float colHeight, CharacterStats stats) {
         super(up, down, left, right, x, y, colxOffset, colyOffset, colWidth, colHeight, stats);
     }
+
+    public Enemy(String pathName, int [] duration, float x, float y, float colxOffset, float colyOffset, float colWidth, float colHeight, CharacterStats stats) throws SlickException {
+        super(pathName, duration, x, y, colxOffset, colyOffset, colWidth, colHeight, stats);
+    }
+
 }

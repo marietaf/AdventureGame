@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="15" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles1" tilewidth="32" tileheight="32">
+  <image source="textures/grass.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="tiles2" tilewidth="32" tileheight="32">
+  <image source="textures/Hyptosis_tilesets/hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="917" name="tiles3" tilewidth="32" tileheight="32">
+  <image source="textures/AyenesTextures/tagteam_tree2.png" width="576" height="768"/>
+ </tileset>
+ <tileset firstgid="1349" name="tiles4" tilewidth="32" tileheight="32">
+  <image source="textures/8-bit_tileset2/cave_41.png" width="512" height="1024"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC42SUQ6DMAxD27EMGHRwTC4M55kntZJlJawfT8qLoUrU5pTSAwzgWWHP4lwbeIERTBV2zbmewRssYK2wa851AR+wgb3CrjnXPJM53/bOrPN5PZ35NJ8r6Dfyzb96xiX89tFeL4fF++iu6nd3oJm6vrnIs5Pp/UVuTvZvp+Zzx76RFyf7AlC+0DWEAwAA
+  </data>
+ </layer>
+ <layer name="Tile Layer 4" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+XPNwpCURRF0Q/X+U/ANAIT39SZMHZ+FWNnwtiZMG67B753J+CB1ezu+OJ5WeSQRwG+pRUtvY4Gmmih7WgdSx9ihDEmmDrazNI32GKHPQ6OdrT0Ox544oW3o3mh3/6vC/M9gihiiIvezSVoSaSQRkb0bq5EK6OCKmqid3NdWoAe+hiI3s3NaQssscJa9G7uRDvjgituovfvPvebnYGEAwAA
+  </data>
+ </layer>
+ <layer name="Tile Layer 6" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3Lyw2CUBRF0Zu8/od8GwA/DQBqAwLSACo0AIIFuBNH3OQmrwB2smbniPwLnEiICDESpMiQ44AjTjg72WRtCpSocMEVN/W1NnfUaNDigU59rU2PJ154Y8CovtZmwowPFqz4qq/PZm/Ptx/xv1ANhAMAAA==
+  </data>
+ </layer>
+ <layer name="Tile Layer 7" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3Ktw2AQAAEwQ9oHdsAtgFsA9gGsBWx4fESCTEnTbI6Y74vcIwJEcGFB995dm36yZCjQIwEqdW16adBiw4lKtRW16afCTMW9BgwWl2bfg6cuLBiw251bfr59+9tN40RjxyEAwAA
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC8XRNxGAUBRE0V/gnmiAaIBogGiAKIcr4BU7NOzMaW67zn2f7zkXIESEGInYUmTIUaBEJbYaDVp06DGIbcSEGQtWbGLbceDEhRuP2P6a9ZHarI/UZn2kNusjtVkfqe2vvZ1iILyEAwAA
+  </data>
+ </layer>
+ <layer name="Tile Layer 3" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3RuxLBYBCG4Z3ZXDwuAQ1ChcaxIg0RFRrHG3C8AQnexvhnNmWqjJ15mnfmq1bkf3m+gidSRAl1FWnARxM1ta2lv22ZTQVV9OkDDDFCT20bO9s2mw66mNNDLBBhprYtne2EzRQBdvQ9Djhiq7adnO2KzRobXOhX3HDHWW17ONvvPWkxErzw1vQmXjY/+gDQlFmnhAMAAA==
+  </data>
+ </layer>
+ <layer name="Tile Layer 5" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3LwQ2CUAAE0Z8QmqMESrAfRGhARBoA1AZQoAFBaUAQCnDu7gkSTmzyLpOsMdvWmGPP/7oLvrsF371ljI8DAoTwrP+uWoQTYpyR4Ci6ahlyXHDFDanoqt3xQIkKNQrRVWvQ4oU3OjxFV63HgC9GTPiIrtoPV0KOooQDAAA=
+  </data>
+ </layer>
+</map>
