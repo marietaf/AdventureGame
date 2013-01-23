@@ -43,7 +43,7 @@ public class GameplayState extends BasicGameState {
     // LEVELS ~~~~~~~~~~~~
     World world;
     //ADD WHEN ADDING LEVELS
-    TiledMap map1, map2;
+    TiledMap map1, map2, map3, map4, map5, map6, map7;
     Item[] item1;
     Friendly[] friendly1;
     Enemy[] enemyset1, enemyset2;
@@ -108,20 +108,40 @@ public class GameplayState extends BasicGameState {
         // LEVELS ~~~~~~~~~~
 
         //CHANGE NUMBER OF LEVELS IN ARRAY
-        levels = new Level[2];
-        world = new World("1", 224, 384, levels);
+        levels = new Level[6];
+        world = new World("1", 256, 256, levels);
             //LEVEL ONE
-            map1 = new TiledMap("data/testmap2.tmx");
+            map1 = new TiledMap("data/room1.tmx");
             item1 = new Item[0];
             friendly1 = new Friendly[0];
             enemyset1 = new Enemy[1];
             enemyset1[0] = enemy1;
             levels[0] = new Level("1", map1, item1, enemyset1, friendly1, player);
             //LEVEL TWO
-            map2 = new TiledMap("data/testmap3.tmx");
+            map2 = new TiledMap("data/Map1.tmx");
             enemyset2 = new Enemy[0];
             levels[1] = new Level("2", map2, item1, enemyset2, friendly1, player);
             //LEVEL THREE
+            map3 = new TiledMap("");
+
+            //LEVEL FOUR
+            map4 = new TiledMap("data/cave2.tmx");
+            levels[3] = new Level("4", map4, item1, enemyset2, friendly1, player);
+
+            //LEVEL FIVE
+            map5 = new TiledMap("data/town1.tmx");
+            levels[4] = new Level("5", map5, item1, enemyset2, friendly1, player);
+
+
+            //LEVEL SIX
+
+
+
+
+            //LEVEL SEVEN
+
+
+            
 
         world.InitializeFirstLevel();
             
