@@ -31,8 +31,8 @@ public class CollisionEvent {
                     if( collisionType == CommonCode.CollisionType.NoCollision){
                         collisionType = CheckDirectionSpecificCollision(collisionBox.getX() + i,
                                 collisionBox.getY() - speed,
-                                collisionBox.getX() + i,
-                                collisionBox.getY() + collisionBox.getHeight() - speed,
+                                collisionBox.getX() + (collisionBox.getWidth()/2),
+                                collisionBox.getY() + (collisionBox.getHeight()/2) - speed,
                                 map);
                     }
                 }
@@ -43,8 +43,8 @@ public class CollisionEvent {
                     if( collisionType == CommonCode.CollisionType.NoCollision){
                         collisionType = CheckDirectionSpecificCollision(collisionBox.getX() + i,
                                 collisionBox.getY() + collisionBox.getHeight() + speed,
-                                collisionBox.getX() + i,
-                                collisionBox.getY() + speed,
+                                collisionBox.getX() + (collisionBox.getWidth()/2),
+                                collisionBox.getY() + (collisionBox.getHeight()/2) + speed,
                                 map);
                     }
                 }
@@ -55,8 +55,8 @@ public class CollisionEvent {
                     if( collisionType == CommonCode.CollisionType.NoCollision){
                         collisionType = CheckDirectionSpecificCollision(collisionBox.getX() - speed,
                                 collisionBox.getY() + i,
-                                collisionBox.getX() + collisionBox.getWidth() - speed,
-                                collisionBox.getY() + i,
+                                collisionBox.getX() + (collisionBox.getWidth()/2) - speed,
+                                collisionBox.getY() + (collisionBox.getHeight()/2),
                                 map);
                     }
                 }
@@ -67,8 +67,8 @@ public class CollisionEvent {
                     if( collisionType == CommonCode.CollisionType.NoCollision){
                         collisionType = CheckDirectionSpecificCollision(collisionBox.getX() + collisionBox.getWidth() + speed,
                                 collisionBox.getY() + i,
-                                collisionBox.getX() + speed,
-                                collisionBox.getY() + i,
+                                collisionBox.getX() + (collisionBox.getWidth()/2) + speed,
+                                collisionBox.getY() + (collisionBox.getHeight()/2),
                                 map);
                     }
                 }

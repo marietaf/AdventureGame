@@ -6,6 +6,7 @@
 package utilities;
 
 import org.newdawn.slick.Input;
+import org.newdawn.slick.geom.Rectangle;
 
 
 /**
@@ -70,24 +71,25 @@ public class PlayerInteraction {
             case Door:
                 float playerX = level.player.GetCollisionBox().getX();
                 float playerY = level.player.GetCollisionBox().getY();
+                Rectangle collisionBox = level.player.GetCollisionBox();
                 float playerSpeed = level.player.GetCharacterStats().GetSpeed();
                 float doorX = -1, doorY = -1, startX, startY;
                 String levelID;
                 if(level.player.GetCharacterDirection().equals(CommonCode.CharacterDirection.Up)){
-                    doorX = playerX + playerSpeed;
-                    doorY = playerY - playerSpeed;
+                    doorX = playerX + (collisionBox.getWidth()/2);
+                    doorY = playerY + (collisionBox.getHeight()/2) - playerSpeed;
                 }
                 else if(level.player.GetCharacterDirection().equals(CommonCode.CharacterDirection.Down)){
-                    doorX = playerX + playerSpeed;
-                    doorY = playerY + playerSpeed;
+                    doorX = playerX + (collisionBox.getWidth()/2);
+                    doorY = playerY + (collisionBox.getHeight()/2) + playerSpeed;
                 }
                 else if(level.player.GetCharacterDirection().equals(CommonCode.CharacterDirection.Left)){
-                    doorX = playerX - playerSpeed;
-                    doorY = playerY + playerSpeed;
+                    doorX = playerX + (collisionBox.getWidth()/2) - playerSpeed;
+                    doorY = playerY + (collisionBox.getHeight()/2);
                 }
                 else if(level.player.GetCharacterDirection().equals(CommonCode.CharacterDirection.Right)){
-                    doorX = playerX + playerSpeed;
-                    doorY = playerY + playerSpeed;
+                    doorX = playerX + (collisionBox.getWidth()/2) + playerSpeed;
+                    doorY = playerY + (collisionBox.getHeight()/2);
                 }
                 levelID = utilities.CollisionEvent.getProperty("levelID", (int)(doorX / CommonCode.MAX_SIZE), (int)(doorY / CommonCode.MAX_SIZE), level.GetTiledMap());
                 startX = Float.parseFloat( utilities.CollisionEvent.getProperty("startX", (int)(doorX / CommonCode.MAX_SIZE), (int)(doorY / CommonCode.MAX_SIZE), level.GetTiledMap() ) );
