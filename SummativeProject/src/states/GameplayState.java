@@ -80,10 +80,10 @@ public class GameplayState extends BasicGameState {
 
             //Enemy - blackghost
             CharacterStats reddragonStats = new CharacterStats(0.5f, 3, 1);
-            reddragon = new Enemy("data/sprites/reddragon", duration, 32, 192, 7, 10, 18, 22, reddragonStats);
+            reddragon = new Enemy("data/sprites/reddragon", duration, 32, 384, 7, 10, 18, 22, reddragonStats);
 
             CharacterStats reddragon2Stats = new CharacterStats(0.5f, 3, 1);
-            reddragon2 = new Enemy("data/sprites/reddragon", duration, 416, 192, 7, 10, 18, 22, reddragon2Stats);
+            reddragon2 = new Enemy("data/sprites/reddragon", duration, 416, 384, 7, 10, 18, 22, reddragon2Stats);
 
         // LEVELS ~~~~~~~~~~
 
