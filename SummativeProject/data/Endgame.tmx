@@ -15,6 +15,27 @@
  <tileset firstgid="3446" name="lushgrass" tilewidth="32" tileheight="32">
   <image source="textures/tileable-img_0062-lush.png" width="1024" height="1024"/>
  </tileset>
+ <tileset firstgid="4470" name="properties_layer" tilewidth="32" tileheight="32">
+  <image source="textures/properties_layer.jpg" width="480" height="480"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="door" value="true"/>
+    <property name="levelID" value="6"/>
+    <property name="startX" value="32"/>
+    <property name="startY" value="224"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="properties layer" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGD6gTBCBydGLTJNqZwUFdpNqH7nyA6V3sIDB6kYA7rsah4QDAAA=
+  </data>
+ </layer>
  <layer name="Tile Layer 2" width="15" height="15">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC5WQiQ3CMAxFI9wMAQwCDMIxB9ccXHNwTUElriXarsG3EoNJm1IiPSVy/OzEWcuYDOSg8Oc+OXjJmSFy9xeQBp7AeW14HdBVvuTqPnK29HF77IBBhVsoV2Kyc94QzgiMwcRUu6T+IfsUuTMwBwuw9K72rPJ0fIXcNdiALdipvuFcw3p75B7AEZzA2Y38/baEXF44K15XcAN38ABP7xJ9z1nqSIxJqIy+073CWFMslT1Lzanrl0fQb47d/XpzrHYd+r//wt4L/vuZd4QDAAA=

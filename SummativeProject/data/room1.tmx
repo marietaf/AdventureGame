@@ -28,7 +28,7 @@
    <properties>
     <property name="door" value="true"/>
     <property name="levelID" value="2"/>
-    <property name="startX" value="160"/>
+    <property name="startX" value="128"/>
     <property name="startY" value="384"/>
    </properties>
   </tile>

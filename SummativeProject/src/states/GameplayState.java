@@ -97,8 +97,8 @@ public class GameplayState extends BasicGameState {
         // LEVELS ~~~~~~~~~~
 
         //CHANGE NUMBER OF LEVELS IN ARRAY
-        levels = new Level[4];
-        world = new World("1", 256, 256, levels);
+        levels = new Level[7];
+        world = new World("1", 50, 100, levels);
             //LEVEL ONE
             map1 = new TiledMap("data/room1.tmx");
             item1 = new Item[0];
@@ -125,12 +125,13 @@ public class GameplayState extends BasicGameState {
 
 
             //LEVEL SIX
-
-
+            map6 = new TiledMap("data/Forest.tmx");
+            levels[5] = new Level("6", map6, item1, enemyset2, friendly1, player);
 
 
             //LEVEL SEVEN
-
+            map7 =new TiledMap("data/Endgame.tmx");
+            levels[6] = new Level("7", map7, item1, enemyset2, friendly1, player);
 
             
 
