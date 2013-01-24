@@ -60,7 +60,7 @@ public class World {
     }
 
     public Enemy[] GetEnemyArray(){
-        return currentLevel.enemies;
+        return GetCurrentLevel().enemies;
     }
 
     public void UpdatePlayer(int key, long delta, StateBasedGame sbg){

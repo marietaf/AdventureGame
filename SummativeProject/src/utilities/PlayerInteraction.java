@@ -119,6 +119,10 @@ public class PlayerInteraction {
             case Item:
                 break;
         }
+        
+        if ( level.GetLevelID().equals("7") && level.player.GetX() == 224 && level.player.GetY() == 352 ){
+            
+        }
     }
 
     public NextLevelInformation GetNextLevelInfo(){

@@ -36,14 +36,14 @@ public class GameplayState extends BasicGameState {
 
     // CHARACTERS ~~~~~~~~
     Player player;
-    Enemy enemy1;
+    Enemy greendragon, blueslime;
     // LEVELS ~~~~~~~~~~~~
     World world;
     //ADD WHEN ADDING LEVELS
     TiledMap map1, map2, map3, map4, map5, map6, map7;
     Item[] item1;
     Friendly[] friendly1;
-    Enemy[] enemyset1, enemyset2;
+    Enemy[] enemyset1, enemyset2, enemyset3, enemyset4, enemyset5, enemyset6, enemyset7;
     Level[] levels;
     PlayerInteraction playerInteraction;
     NPCInteraction npcInteraction;
@@ -89,49 +89,69 @@ public class GameplayState extends BasicGameState {
             //Player
             CharacterStats playerStats = new CharacterStats(1.5f, 0, 1);
             player = new Player("data/char2", duration, 224, 384, 7, 10, 18, 22, playerStats);
-            //Enemy2
-            CharacterStats enemy1Stats = new CharacterStats(0.7f, 3, 1);
-            //enemy1 = new Enemy(enemy1up, enemy1down, enemy1left, enemy1right, 224, 200, 7, 10, 18, 22, enemy1Stats);
-            enemy1 = new Enemy("data/char", duration, 224, 200, 7, 10, 18, 22, enemy1Stats);
+            //Enemy - greendragon (lvl2)
+            CharacterStats greendragonStats = new CharacterStats(0.5f, 3, 1);
+            greendragon = new Enemy("data/sprites/greendragon", duration, 224, 200, 7, 10, 18, 22, greendragonStats);
+            //Enemy - greendragon
+            CharacterStats blueslimeStats = new CharacterStats(0.5f, 3, 1);
+            blueslime = new Enemy("data/sprites/blueslime", duration, 224, 200, 7, 10, 18, 22, blueslimeStats);
             
         // LEVELS ~~~~~~~~~~
 
         //CHANGE NUMBER OF LEVELS IN ARRAY
         levels = new Level[7];
         world = new World("1", 50, 100, levels);
+
             //LEVEL ONE
             map1 = new TiledMap("data/room1.tmx");
             item1 = new Item[0];
             friendly1 = new Friendly[0];
-            enemyset1 = new Enemy[1];
-            enemyset1[0] = enemy1;
+            enemyset1 = new Enemy[0];
             levels[0] = new Level("1", map1, item1, enemyset1, friendly1, player);
+
             //LEVEL TWO
+<<<<<<< HEAD
             map2 = new TiledMap("data/map1v2.tmx");
             enemyset2 = new Enemy[0];
+=======
+            map2 = new TiledMap("data/Map1.tmx");
+            enemyset2 = new Enemy[1];
+            enemyset2[0] = greendragon;
+>>>>>>> Added Enemies to Level 1 and 2 & Started WinState
             levels[1] = new Level("2", map2, item1, enemyset2, friendly1, player);
 
             //LEVEL THREE
             map3 = new TiledMap("data/cave1.tmx");
-            levels[2] = new Level ("3", map3, item1, enemyset2, friendly1, player);
+            enemyset3 = new Enemy[1];
+            enemyset3[0] = blueslime;
+            levels[2] = new Level ("3", map3, item1, enemyset3, friendly1, player);
 
             //LEVEL FOUR
+<<<<<<< HEAD
             map4 = new TiledMap("data/cave2.tmx");
             levels[3] = new Level("4", map4, item1, enemyset2, friendly1, player);
+=======
+            map4 = new TiledMap("data/cave2v2.tmx");
+            enemyset4 = new Enemy[0];
+            levels[3] = new Level("4", map4, item1, enemyset4, friendly1, player);
+>>>>>>> Added Enemies to Level 1 and 2 & Started WinState
 
             //LEVEL FIVE
             map5 = new TiledMap("data/town1.tmx");
-            levels[4] = new Level("5", map5, item1, enemyset2, friendly1, player);
+            enemyset5 = new Enemy[0];
+            levels[4] = new Level("5", map5, item1, enemyset5, friendly1, player);
 
 
             //LEVEL SIX
             map6 = new TiledMap("data/Forest.tmx");
-            levels[5] = new Level("6", map6, item1, enemyset2, friendly1, player);
+            enemyset6 = new Enemy[0];
+            levels[5] = new Level("6", map6, item1, enemyset6, friendly1, player);
 
 
             //LEVEL SEVEN
             map7 =new TiledMap("data/Endgame.tmx");
-            levels[6] = new Level("7", map7, item1, enemyset2, friendly1, player);
+            enemyset7 = new Enemy[0];
+            levels[6] = new Level("7", map7, item1, enemyset7, friendly1, player);
 
             
 
@@ -195,13 +215,8 @@ public class GameplayState extends BasicGameState {
     public void render(GameContainer container, StateBasedGame sbg, Graphics grphcs) throws SlickException {
         world.RenderCurrentLevel();
         for(Enemy enemy: world.GetEnemyArray()){
-            enemy.GetCharacterRenderableDirection().draw(enemy1.GetX(), enemy1.GetY());
+            enemy.GetCharacterRenderableDirection().draw(enemy.GetX(), enemy.GetY());
         }
         player.GetCharacterRenderableDirection().draw(player.GetX(), player.GetY());
-        
-
-        //levels[0].Render();
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        
     }
 }

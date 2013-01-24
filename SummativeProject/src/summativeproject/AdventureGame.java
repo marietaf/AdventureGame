@@ -20,6 +20,7 @@ public class AdventureGame extends StateBasedGame{
     public static final int menu = 0;
     public static final int play = 1;
     public static final int gameover = 2;
+    public static final int gamewin = 3;
 
     //sets the title to Adventure Game
     public AdventureGame(){
@@ -27,6 +28,7 @@ public class AdventureGame extends StateBasedGame{
         this.addState(new MainMenuState(menu));
         this.addState(new GameplayState(play));
         this.addState(new GameOverState(gameover));
+        this.addState(new GameWinState(gamewin));
 
     }
 
@@ -34,6 +36,7 @@ public class AdventureGame extends StateBasedGame{
         this.getState(menu) .init(container, this);
         this.getState(play) .init(container, this);
         this.getState(gameover) .init(container, this);
+        this.getState(gamewin) .init(container, this);
         this.enterState(menu);
     }
 
