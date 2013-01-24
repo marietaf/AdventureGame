@@ -87,7 +87,7 @@ public class GameplayState extends BasicGameState {
         // CHARACTERS ~~~~~~~~
         int [] duration = {300, 300};
             //Player
-            CharacterStats playerStats = new CharacterStats(1.5f, 3, 1);
+            CharacterStats playerStats = new CharacterStats(1.5f, 0, 1);
             player = new Player("data/char2", duration, 224, 384, 7, 10, 18, 22, playerStats);
             //Enemy2
             CharacterStats enemy1Stats = new CharacterStats(0.7f, 3, 1);
@@ -170,19 +170,16 @@ public class GameplayState extends BasicGameState {
         world.UpdateWorld(delta, npcAI);
 
         if(input.isKeyDown(Input.KEY_UP)){
-            world.UpdatePlayer(Input.KEY_UP, delta);
+            world.UpdatePlayer(Input.KEY_UP, delta, sbg);
         }
         else if(input.isKeyDown(Input.KEY_DOWN)){
-            world.UpdatePlayer(Input.KEY_DOWN, delta);
+            world.UpdatePlayer(Input.KEY_DOWN, delta, sbg);
         }
         else if(input.isKeyDown(Input.KEY_LEFT)){
-            world.UpdatePlayer(Input.KEY_LEFT, delta);
+            world.UpdatePlayer(Input.KEY_LEFT, delta, sbg);
         }
         else if(input.isKeyDown(Input.KEY_RIGHT)){
-            world.UpdatePlayer(Input.KEY_RIGHT, delta);
-        }
-        if(playerInteraction.GetGameOver()){
-            sbg.enterState(2);
+            world.UpdatePlayer(Input.KEY_RIGHT, delta, sbg);
         }
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

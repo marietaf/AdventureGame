@@ -6,6 +6,7 @@
 package utilities;
 
 import entities.*;
+import org.newdawn.slick.state.StateBasedGame;
 import states.GameplayState;
 
 /**
@@ -62,11 +63,14 @@ public class World {
         return currentLevel.enemies;
     }
 
-    public void UpdatePlayer(int key, long delta){
+    public void UpdatePlayer(int key, long delta, StateBasedGame sbg){
         this.delta = delta;
         playerInteraction.HandleEvents(key, delta);
         if( playerInteraction.GetSwitchLevel() ){
             ChangeCurrentLevel();
+        }
+        if(playerInteraction.GetGameOver()){
+            sbg.enterState(2);
         }
     }
 
@@ -74,7 +78,6 @@ public class World {
         this.delta = delta;
         this.npcAI = npcAI;
         npcInteraction.HandleEvents(delta);
-
     }
 
     public void InitializeFirstLevel(){
