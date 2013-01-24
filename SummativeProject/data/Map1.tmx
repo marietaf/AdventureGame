@@ -11,8 +11,6 @@
   <tile id="2">
    <properties>
     <property name="door" value="true"/>
-    <property name="startX" value=""/>
-    <property name="startY" value=""/>
    </properties>
   </tile>
  </tileset>
@@ -41,36 +39,12 @@
    <property name="levelID" value="2"/>
   </properties>
   <data encoding="base64" compression="gzip">
-<<<<<<< HEAD
    H4sIAAAAAAAAC72R2Q3CQAxEHbziLICzAI6iaI9AIxyNkKQJZrWxMrG0AuWDj6f1zGaSaFyISPFHRjRfVGQpHTtQwruCm6Z702dJWPYOb4VzDTZgCx7wnuCl6d60z77hjXFqS5wrDDVoNN2b9tlpEJmFzjc9B4vQ1z67h3cg/xe4q1KHZbmLXDfcdeyeu+IdMZb17+eueEe8K8ty1432u4p7CbSnOE8k371l+Z/s2ar9jmnbxRGcXPYbua6G8gF0bvDthAMAAA==
   </data>
  </layer>
  <layer name="Trees Shrubs and CaveDoor" width="15" height="15">
   <data encoding="base64" compression="gzip">
-<<<<<<< HEAD
-   H4sIAAAAAAAAC2NgoC9gIiBvC8R2WGhigDsQe2ChRxJQBGIlIFYmQ682EOsAsS4Zek2B2AyIzcnQS20QD8TCUAwD6Hx8emGYXgAAeD3Cw4QDAAA=
-=======
-   H4sIAAAAAAAAC72RSw6CQBBEG3uiqCviQkUP4OdQXk/0IioXUbmENRk6FJNMNCxcvExXNcWiOhOR7I+MaD6ryFI6tqCCdwFXDXvTJwlY9gZvhXcNSrABd3gPUGvYm46zT3hjvNri5xeGN2g07E3H2dyJTF3nm56BuevrOLuDtyf/F7irSodluYtUN9y175674hsxlo3/z13xjfhWluWuG+135e/i6E5+nki6e8v63QIU9G3ReqbtFgdwjLLfSHU1lA/zX2qbhAMAAA==
-  </data>
- </layer>
- <layer name="Trees" width="15" height="15">
-  <properties>
-   <property name="levelID" value="2"/>
-  </properties>
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgoC9gIiBvC8R2WGhigDsQe2ChR8HIAzxQjIuPD8QjYXoAAKiju8SEAwAA
-  </data>
- </layer>
- <layer name="Bushes" width="15" height="15">
-  <properties>
-   <property name="levelID" value="2"/>
-  </properties>
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAXDCSgCsRIQK5OhVxuIdYBYlwy9pkBsBsTmZOilNogHYmEohgF0Pj69MEwvAAA/G1NKhAMAAA==
->>>>>>> Maps
-=======
    H4sIAAAAAAAAC2NgoC9gIiBvC8R2WGhigDsQe2ChRxJQBGIlIFYmQ682EOsAsS4Zek2B2AyIzcnQSwsgDMW4+IMJAACnu8YrhAMAAA==
->>>>>>> Started adding enemies
   </data>
  </layer>
 </map>

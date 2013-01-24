@@ -5,6 +5,8 @@
 
 package utilities;
 
+import entities.*;
+
 /**
  *
  * @author root
@@ -53,6 +55,10 @@ public class World {
 
     public Level GetCurrentLevel(){
         return currentLevel;
+    }
+
+    public Enemy[] GetEnemyArray(){
+        return currentLevel.enemies;
     }
 
     public void UpdatePlayer(int key, long delta){

@@ -6,7 +6,6 @@
 package states;
 
 import entities.*;
-import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -14,7 +13,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
-import org.newdawn.slick.Image;
 import utilities.CharacterStats;
 import utilities.Level;
 import utilities.NPCAI;
@@ -37,7 +35,6 @@ public class GameplayState extends BasicGameState {
     public String levelID;
 
     // CHARACTERS ~~~~~~~~
-    private Animation up, down, left, right, enemy1up, enemy1down, enemy1left, enemy1right;
     Player player;
     Enemy enemy1;
     // LEVELS ~~~~~~~~~~~~
@@ -90,14 +87,6 @@ public class GameplayState extends BasicGameState {
         // CHARACTERS ~~~~~~~~
         int [] duration = {300, 300};
             //Player
-            Image [] movementUp = {new Image("data/char2_bk1.gif"), new Image("data/char2_bk2.gif")};
-            Image [] movementDown = {new Image("data/char2_fr1.gif"), new Image("data/char2_fr2.gif")};
-            Image [] movementLeft = {new Image("data/char2_lf1.gif"), new Image("data/char2_lf2.gif")};
-            Image [] movementRight = {new Image("data/char2_rt1.gif"), new Image("data/char2_rt2.gif")};
-            up = new Animation (movementUp, duration, false);
-            down = new Animation(movementDown, duration, false);
-            left = new Animation(movementLeft, duration, false);
-            right = new Animation(movementRight, duration, false);
             CharacterStats playerStats = new CharacterStats(1.5f, 3, 1);
             player = new Player("data/char2", duration, 224, 384, 7, 10, 18, 22, playerStats);
             //Enemy
@@ -108,7 +97,7 @@ public class GameplayState extends BasicGameState {
         // LEVELS ~~~~~~~~~~
 
         //CHANGE NUMBER OF LEVELS IN ARRAY
-        levels = new Level[6];
+        levels = new Level[4];
         world = new World("1", 256, 256, levels);
             //LEVEL ONE
             map1 = new TiledMap("data/room1.tmx");
@@ -122,15 +111,15 @@ public class GameplayState extends BasicGameState {
             enemyset2 = new Enemy[0];
             levels[1] = new Level("2", map2, item1, enemyset2, friendly1, player);
             //LEVEL THREE
-            map3 = new TiledMap("");
+            map3 = new TiledMap("data/testmap2.tmx");
 
             //LEVEL FOUR
             map4 = new TiledMap("data/cave2.tmx");
-            levels[3] = new Level("4", map4, item1, enemyset2, friendly1, player);
+            levels[2] = new Level("4", map4, item1, enemyset2, friendly1, player);
 
             //LEVEL FIVE
             map5 = new TiledMap("data/town1.tmx");
-            levels[4] = new Level("5", map5, item1, enemyset2, friendly1, player);
+            levels[3] = new Level("5", map5, item1, enemyset2, friendly1, player);
 
 
             //LEVEL SIX
@@ -202,7 +191,9 @@ public class GameplayState extends BasicGameState {
     @Override
     public void render(GameContainer container, StateBasedGame sbg, Graphics grphcs) throws SlickException {
         world.RenderCurrentLevel();
-        enemy1.GetCharacterRenderableDirection().draw(enemy1.GetX(), enemy1.GetY());
+        for(Enemy enemy: world.GetEnemyArray()){
+            enemy.GetCharacterRenderableDirection().draw(enemy1.GetX(), enemy1.GetY());
+        }
         player.GetCharacterRenderableDirection().draw(player.GetX(), player.GetY());
         
 

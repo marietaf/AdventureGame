@@ -39,45 +39,33 @@
   </data>
  </layer>
  <layer name="Side Walls" width="15" height="15">
-<<<<<<< HEAD
-=======
   <properties>
    <property name="levelID" value="1"/>
   </properties>
->>>>>>> Maps
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC2NgIB9Ek6kvdlTvqN5hppcSAACF+2vmhAMAAA==
   </data>
  </layer>
  <layer name="Bed" width="15" height="15">
-<<<<<<< HEAD
-=======
   <properties>
    <property name="levelID" value="1"/>
   </properties>
->>>>>>> Maps
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC2NgGFjgS4HeeKq5YhSMgoEDAIB+0WeEAwAA
   </data>
  </layer>
  <layer name="Book Shelf" width="15" height="15">
-<<<<<<< HEAD
-=======
   <properties>
    <property name="levelID" value="1"/>
   </properties>
->>>>>>> Maps
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC2NgIA4UAHEhEk0IzEZiNwFxMxJNL3AQiA9B8WES9V4G4itQfJXK7hopQAOINYFYC4jVSdRrBcTWQGwDxJZUdtdgAwAliwNdhAMAAA==
   </data>
  </layer>
  <layer name="Stuff " width="15" height="15">
-<<<<<<< HEAD
-=======
   <properties>
    <property name="levelID" value="1"/>
   </properties>
->>>>>>> Maps
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC2NgYGA4wgABMJoUcA2NpjZYg8ReS6LefUC8GojPAfF+MuxWhWJkUALEpUBcRkCvORQjgzYgbgfiDjLcMlwBseGJDQyV8DzHiF8eAO8r/y+EAwAA
   </data>
