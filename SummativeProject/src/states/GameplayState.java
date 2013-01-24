@@ -36,7 +36,7 @@ public class GameplayState extends BasicGameState {
 
     // CHARACTERS ~~~~~~~~
     Player player;
-    Enemy greendragon, blueslime;
+    Enemy greendragon, blueslime, blueslime2;
     // LEVELS ~~~~~~~~~~~~
     World world;
     //ADD WHEN ADDING LEVELS
@@ -88,14 +88,17 @@ public class GameplayState extends BasicGameState {
         int [] duration = {300, 300};
             //Player
             CharacterStats playerStats = new CharacterStats(1.5f, 0, 1);
-            player = new Player("data/char2", duration, 224, 384, 7, 10, 18, 22, playerStats);
+            player = new Player("data/char2", duration, 100, 100, 7, 10, 18, 22, playerStats);
             //Enemy - greendragon (lvl2)
             CharacterStats greendragonStats = new CharacterStats(0.5f, 3, 1);
             greendragon = new Enemy("data/sprites/greendragon", duration, 224, 200, 7, 10, 18, 22, greendragonStats);
             //Enemy - greendragon
             CharacterStats blueslimeStats = new CharacterStats(0.5f, 3, 1);
-            blueslime = new Enemy("data/sprites/blueslime", duration, 224, 200, 7, 10, 18, 22, blueslimeStats);
-            
+            blueslime = new Enemy("data/sprites/blueslime", duration, 300, 300, 7, 10, 18, 22, blueslimeStats);
+
+            CharacterStats blueslime2Stats = new CharacterStats(0.5f, 3, 1);
+            blueslime2 = new Enemy("data/sprites/blueslime", duration, 125, 200, 7, 10, 18, 22, blueslime2Stats);
+
         // LEVELS ~~~~~~~~~~
 
         //CHANGE NUMBER OF LEVELS IN ARRAY
@@ -110,10 +113,18 @@ public class GameplayState extends BasicGameState {
             levels[0] = new Level("1", map1, item1, enemyset1, friendly1, player);
 
             //LEVEL TWO
+<<<<<<< HEAD
+=======
+//<<<<<<< HEAD
+>>>>>>> Added some monsters and polished the map transitions
             map2 = new TiledMap("data/map1v2.tmx");
             enemyset2 = new Enemy[1];
             enemyset2[0] = greendragon;
             levels[1] = new Level("2", map2, item1, enemyset2, friendly1, player);
+//=======
+            
+//>>>>>>> Added Enemies to Level 1 and 2 & Started WinState
+          
 
             //LEVEL THREE
             map3 = new TiledMap("data/cave1.tmx");
@@ -122,9 +133,23 @@ public class GameplayState extends BasicGameState {
             levels[2] = new Level ("3", map3, item1, enemyset3, friendly1, player);
 
             //LEVEL FOUR
+<<<<<<< HEAD
             map4 = new TiledMap("data/cave2.tmx");
             enemyset4 = new Enemy[0];
             levels[3] = new Level("4", map4, item1, enemyset4, friendly1, player);
+=======
+//<<<<<<< HEAD
+            map4 = new TiledMap("data/cave2.tmx");
+            levels[3] = new Level("4", map4, item1, enemyset4, friendly1, player);
+            enemyset4 = new Enemy[2];
+            enemyset4[0] = blueslime2;
+            enemyset4[1] = blueslime;
+            
+            
+//=======
+            
+//>>>>>>> Added Enemies to Level 1 and 2 & Started WinState
+>>>>>>> Added some monsters and polished the map transitions
 
             //LEVEL FIVE
             map5 = new TiledMap("data/town1.tmx");
