@@ -180,6 +180,9 @@ public class GameplayState extends BasicGameState {
         else if(input.isKeyDown(Input.KEY_RIGHT)){
             world.UpdatePlayer(Input.KEY_RIGHT, delta);
         }
+        if(playerInteraction.GetGameOver()){
+            sbg.enterState(2);
+        }
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         

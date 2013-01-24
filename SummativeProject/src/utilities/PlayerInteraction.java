@@ -16,6 +16,7 @@ import org.newdawn.slick.geom.Rectangle;
 public class PlayerInteraction {
 
     boolean switchLevel = false;
+    boolean GameOver = false;
     NextLevelInformation nextLevelInfo;
     Level level;
 
@@ -106,6 +107,9 @@ public class PlayerInteraction {
                 
             case Enemy:
                 level.player.GetCharacterStats().SetHealth( level.player.GetCharacterStats().GetHealth() - 1 );
+                if ( level.player.GetCharacterStats().GetHealth() == 0 ){
+                    GameOver = true;
+                }
                 break;
 
             case Friendly:
@@ -122,5 +126,9 @@ public class PlayerInteraction {
 
     public boolean GetSwitchLevel(){
         return switchLevel;
+    }
+
+    public boolean GetGameOver(){
+        return GameOver;
     }
 }
