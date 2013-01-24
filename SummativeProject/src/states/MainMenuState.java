@@ -33,7 +33,7 @@ public class MainMenuState extends BasicGameState {
     }
 
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
-        playGame = new Image("data/playnowimage.jpg");
+        playGame = new Image("data/playnowimage.gif");
         exitGame = new Image("data/exitimage.png");
     }
 
