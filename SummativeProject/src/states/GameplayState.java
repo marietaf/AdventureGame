@@ -89,7 +89,7 @@ public class GameplayState extends BasicGameState {
             //Player
             CharacterStats playerStats = new CharacterStats(1.5f, 3, 1);
             player = new Player("data/char2", duration, 224, 384, 7, 10, 18, 22, playerStats);
-            //Enemy
+            //Enemy2
             CharacterStats enemy1Stats = new CharacterStats(0.7f, 3, 1);
             //enemy1 = new Enemy(enemy1up, enemy1down, enemy1left, enemy1right, 224, 200, 7, 10, 18, 22, enemy1Stats);
             enemy1 = new Enemy("data/char", duration, 224, 200, 7, 10, 18, 22, enemy1Stats);
@@ -116,7 +116,7 @@ public class GameplayState extends BasicGameState {
             levels[2] = new Level ("3", map3, item1, enemyset2, friendly1, player);
 
             //LEVEL FOUR
-            map4 = new TiledMap("data/cave2.tmx");
+            map4 = new TiledMap("data/cave2v2.tmx");
             levels[3] = new Level("4", map4, item1, enemyset2, friendly1, player);
 
             //LEVEL FIVE
