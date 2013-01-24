@@ -38,10 +38,10 @@ public class GameplayState extends BasicGameState {
           reddragon, reddragon2;
     // LEVELS ~~~~~~~~~~~~
     World world;
-    TiledMap map1, map2, map3, map4, map5, map6, map7;
+    TiledMap map1, map2, map3, map4, map5, map6, map7, map8;
     Item[] item1;
     Friendly[] friendly1;
-    Enemy[] enemyset1, enemyset2, enemyset3, enemyset4, enemyset5, enemyset6, enemyset7;  //enemyset# represents the enemies in their corresponding map number
+    Enemy[] enemyset1, enemyset2, enemyset3, enemyset4, enemyset5, enemyset6, enemyset7, enemyset8;  //enemyset# represents the enemies in their corresponding map number
     Level[] levels;
     PlayerInteraction playerInteraction;
     NPCInteraction npcInteraction;
@@ -88,7 +88,7 @@ public class GameplayState extends BasicGameState {
         // LEVELS ~~~~~~~~~~
 
         //CHANGE NUMBER OF LEVELS IN ARRAY
-        levels = new Level[7];
+        levels = new Level[8];
         world = new World("1", 50, 100, levels);
 
             //LEVEL ONE
@@ -136,6 +136,15 @@ public class GameplayState extends BasicGameState {
             enemyset7[0] = reddragon;
             enemyset7[1] = reddragon2;
             levels[6] = new Level("7", map7, item1, enemyset7, friendly1, player);
+
+            /* EXTRA LEVEL
+            //LEVEL EIGHT
+            map8 = new TiledMap("data/house1.tmx");
+            enemyset8 = new Enemy[0];
+            levels[7] = new Level("8", map8, item1, enemyset8, friendly1, player);
+             */
+
+
 
         world.InitializeFirstLevel();
         npcAI = new NPCAI(world.GetCurrentLevel());

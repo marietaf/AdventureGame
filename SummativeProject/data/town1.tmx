@@ -175,18 +175,26 @@
     <property name="startY" value="224"/>
    </properties>
   </tile>
+  <tile id="4">
+   <properties>
+    <property name="door " value="true"/>
+    <property name="levelID" value="8"/>
+    <property name="startX" value="256"/>
+    <property name="startY" value="416"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="properties layer" width="15" height="15">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC5vFzsAwiwKMDnDJ00MvMWxk/bjsIlYvsYBSvXNxqMcWFujhRIpefG4mBZCrD5deXOlhsOnFhudAMT41AE2LZuuEAwAA
   </data>
  </layer>
- <layer name="Tile Layer 1" width="15" height="15">
+ <layer name="Tile Layer 1" width="15" height="15" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC52SSW7CQBRE2w1bFgRWYcoVIGwgTOdgSs4AO8h0LobAOZjPwRB4Ldtyq2kGIfmpvn51tSyXB44QQxjBGP6AR0gR6Jd0vRBzWAQ6YzeHBSxhBVH2TyLQsefFmOMi0C27HezhAP+QZV9Ai5ATbk55r8wdtAt55mfeJwFJSEEaMhBxXEzP36tcEd6gBGWoQFU7Y3r+XuXq0IAmtDTvFirXgz58Svd73pvtXTk7hYGlv4nmXcpuHHt/a80zOzLvMPs7ej/M1jnvyMza+nuRj3WkvJq0d9SGdy1r8z6kvaNv+NGyNu/Xy13qwc9e6+gEbqdn4oQDAAA=
   </data>
  </layer>
- <layer name="Tile Layer 2" width="15" height="15">
+ <layer name="Tile Layer 2" width="15" height="15" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC2NgGB5gGw72LjR2FxB3A3EPVN02BuL1TgPi6UA8A00dIQDSuwiIFwPxEjS9e4F4HwG9yG5GBieB+BQW9cgY2c3I4CoQXyPgbmQ3DyQ4AMQH8fDxgTNAfBYPfzDYCwCtHUf9hAMAAA==
   </data>
