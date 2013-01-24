@@ -14,23 +14,11 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="111" name="path" tilewidth="32" tileheight="32">
-  <image source="textures/tileable3k_tile.gif" width="32" height="32"/>
- </tileset>
- <tileset firstgid="112" name="cave_4" tilewidth="32" tileheight="32">
-  <image source="textures/8-bit_tileset2/cave_4.png" width="512" height="1024"/>
- </tileset>
- <tileset firstgid="624" name="desert_2" tilewidth="32" tileheight="32">
-  <image source="textures/8-bit_tileset2/desert_2.png" width="416" height="768"/>
- </tileset>
- <tileset firstgid="936" name="grass" tilewidth="32" tileheight="32">
-  <image source="textures/tileable-img_0062-lush.png" width="1024" height="1024"/>
- </tileset>
- <tileset firstgid="1960" name="properties_layer" tilewidth="32" tileheight="32">
+ <tileset firstgid="111" name="properties_layer" tilewidth="32" tileheight="32">
   <image source="textures/properties_layer.jpg" width="480" height="480"/>
   <tile id="0">
    <properties>
-    <property name="blocked " value="true"/>
+    <property name="blocked" value="true"/>
    </properties>
   </tile>
   <tile id="2">
@@ -50,22 +38,22 @@
    </properties>
   </tile>
  </tileset>
+ <tileset firstgid="336" name="grass" tilewidth="32" tileheight="32">
+  <image source="textures/tileable-img_0062-lush.png" width="1024" height="1024"/>
+ </tileset>
  <layer name="properties layer" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC1vBzsCwgo54NRIbBIjVBwO00ksIEKtuoPXi8z+5egmFK6V6cfkXxl5FgV5scoT0kgoozRMAf/ZDyYQDAAA=
+   H4sIAAAAAAAAC8tnYGDIpyMuQmIzkKCPAU09tfUSAsSqG8p6cYUdoXCltd5CPHqxmYPOxsbHp5dUQGmeAABpNZ4KhAMAAA==
   </data>
  </layer>
  <layer name="Main Layer" width="15" height="15">
-  <properties>
-   <property name="levelID" value="2"/>
-  </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC72R2Q3CQAxEHbziLICzAI6iaI9AIxyNkKQJZrWxMrG0AuWDj6f1zGaSaFyISPFHRjRfVGQpHTtQwruCm6Z702dJWPYOb4VzDTZgCx7wnuCl6d60z77hjXFqS5wrDDVoNN2b9tlpEJmFzjc9B4vQ1z67h3cg/xe4q1KHZbmLXDfcdeyeu+IdMZb17+eueEe8K8ty1432u4p7CbSnOE8k371l+Z/s2ar9jmnbxRGcXPYbua6G8gF0bvDthAMAAA==
+   H4sIAAAAAAAAC73SQU7CQBTG8ZmB6FZEEYFDIF6k1aDsuEILAT0GaACP0Qqox9Cb6A38T4ZJXytJjQsXv9fX4fsWMGillP5HRuwB40xlOuhzdoNbDLTLhBgqx3cjRpPnOVpoY8LZFHe41y4T7+nOGAc8Kzt2X3C2xApP2mXme7oJIxXnG/YtXvCKN/0z47vvjA9x/hu++8n4+mP3iB+9hmPUcYJTNEyWLWZ8t2vydyT5rs1coIdL0Q1M/o7kXfmuzYS4wrXoRsbdS1Xck90PRddmYowwFl372Zz3B/H9FuxL8T4zWeax0C2TkE/xjLUp/8+X+QY03oOUhAMAAA==
   </data>
  </layer>
- <layer name="Trees Shrubs and CaveDoor" width="15" height="15">
+ <layer name="Trees" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgoC9gIiBvC8R2WGhigDsQe2ChRxJQBGIlIFYmQ682EOsAsS4Zek2B2AyIzcnQSwsgDMW4+IMJAACnu8YrhAMAAA==
+   H4sIAAAAAAAAC2NgGFzAFojtsNDEAHcg9sBCjwLigCIQKwGxMhl6tYFYB4h1ydBrCsRmQGxOhl5cQBiKcfEHEwAABb3mu4QDAAA=
   </data>
  </layer>
 </map>

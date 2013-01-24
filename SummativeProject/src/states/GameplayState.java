@@ -107,7 +107,7 @@ public class GameplayState extends BasicGameState {
             enemyset1[0] = enemy1;
             levels[0] = new Level("1", map1, item1, enemyset1, friendly1, player);
             //LEVEL TWO
-            map2 = new TiledMap("data/Map1.tmx");
+            map2 = new TiledMap("data/map1v2.tmx");
             enemyset2 = new Enemy[0];
             levels[1] = new Level("2", map2, item1, enemyset2, friendly1, player);
 
@@ -116,7 +116,7 @@ public class GameplayState extends BasicGameState {
             levels[2] = new Level ("3", map3, item1, enemyset2, friendly1, player);
 
             //LEVEL FOUR
-            map4 = new TiledMap("data/cave2v2.tmx");
+            map4 = new TiledMap("data/cave2.tmx");
             levels[3] = new Level("4", map4, item1, enemyset2, friendly1, player);
 
             //LEVEL FIVE

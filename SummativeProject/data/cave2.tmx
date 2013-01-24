@@ -30,7 +30,7 @@
     <property name="door" value="true"/>
     <property name="levelID" value="3"/>
     <property name="startX" value="224"/>
-    <property name="startY" value="64"/>
+    <property name="startY" value="96"/>
    </properties>
   </tile>
   <tile id="3">

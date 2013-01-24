@@ -29,7 +29,7 @@
  </tileset>
  <layer name="properties layer" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NkYmBgpBCjA5AYC5ocslp8egkBdL2kuJFW9uJSh0stOk2Mvch8bHrR7SKGjc89hMKJHL2Ewgyffwm5A5deYtMuuWmDkPnMUIxPDQAVYruwhAMAAA==
+   H4sIAAAAAAAAC2NkYmBgpBCjA5AYC5ocslp8egkBdL2kuJFW9pKjF5kmRi8yH5tedHcRw8bnHkJ+I0cvrjDD5U5s/sTlDlx6iU275KYNQuYzQzE+NQBuncd6hAMAAA==
   </data>
  </layer>
  <layer name="Main Layer" width="15" height="15">
