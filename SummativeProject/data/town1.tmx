@@ -178,7 +178,7 @@
  </tileset>
  <layer name="properties layer" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgwASz2FExIfHBopcYNrIZuOwiVi+xgFK9cwmEFy67SNWLTc1gALjSw1DQOweK8ekFACrKhmCEAwAA
+   H4sIAAAAAAAAC5vFzsAwiwKMDnDJ00MvMWxk/bjsIlYvsYBSvXNxqMcWFujhRIpefG4mBZCrD5deXOlhsOnFhudAMT41AE2LZuuEAwAA
   </data>
  </layer>
  <layer name="Tile Layer 1" width="15" height="15">

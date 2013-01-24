@@ -46,7 +46,7 @@ public class AdventureGame extends StateBasedGame{
             AppGameContainer app = new AppGameContainer(new AdventureGame());
             app.setDisplayMode(480, 480, false);
             app.setTargetFrameRate(60);
-            //app.setShowFPS(false);
+            app.setShowFPS(false);
             app.start();
         }
         catch(SlickException e){

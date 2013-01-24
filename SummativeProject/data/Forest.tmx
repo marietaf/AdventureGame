@@ -31,14 +31,14 @@
    <properties>
     <property name="door" value="true"/>
     <property name="levelID" value="7"/>
-    <property name="startX" value="256"/>
+    <property name="startX" value="224"/>
     <property name="startY" value="192"/>
    </properties>
   </tile>
  </tileset>
  <layer name="properties layer" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC3NlZ2BwpTMGAXrbORgwOcAdqM+DAr2U2DvQ4TVSMABUyskQhAMAAA==
+   H4sIAAAAAAAAC3NlZ2BwHcU0xx5ATA5wH0C9Ax1mIwUDAHhe+UuEAwAA
   </data>
  </layer>
  <layer name="Tile Layer 1" width="15" height="15">
