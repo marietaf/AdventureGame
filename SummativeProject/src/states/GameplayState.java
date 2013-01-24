@@ -1,6 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/*This program was created by Marieta Farova, Kelvin Xu and Aron Yoo
+ * from December 17th 2012, to January 24th 2013
+ * to create an rpg game in java
  */
 
 package states;
@@ -29,8 +29,9 @@ public class GameplayState extends BasicGameState {
     int stateID = 1;
     public String levelID;
 
-    // CHARACTERS ~~~~~~~~
+    // CHARACTERS AND ENEMIES
     Player player;
+
     Enemy greendragon,
           blueslime, blueslime2,
           blackghost,
@@ -40,7 +41,7 @@ public class GameplayState extends BasicGameState {
     TiledMap map1, map2, map3, map4, map5, map6, map7;
     Item[] item1;
     Friendly[] friendly1;
-    Enemy[] enemyset1, enemyset2, enemyset3, enemyset4, enemyset5, enemyset6, enemyset7;
+    Enemy[] enemyset1, enemyset2, enemyset3, enemyset4, enemyset5, enemyset6, enemyset7;  //enemyset# represents the enemies in their corresponding map number
     Level[] levels;
     PlayerInteraction playerInteraction;
     NPCInteraction npcInteraction;
@@ -54,12 +55,11 @@ public class GameplayState extends BasicGameState {
     public int getID() {
         return 1;
     }
-
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
         //INITIALIZE ALL ENTITIES and levels!
         //set defaults
 
-        // CHARACTERS ~~~~~~~~
+        // CHARACTERS AND ENEMIES
         int [] duration = {300, 300};
             //Player
             CharacterStats playerStats = new CharacterStats(1.5f, 0, 1);
@@ -104,6 +104,7 @@ public class GameplayState extends BasicGameState {
             enemyset2[0] = greendragon;
             levels[1] = new Level("2", map2, item1, enemyset2, friendly1, player);
 
+          
             //LEVEL THREE
             map3 = new TiledMap("data/cave1.tmx");
             enemyset3 = new Enemy[1];
@@ -122,7 +123,6 @@ public class GameplayState extends BasicGameState {
             enemyset5 = new Enemy[0];
             levels[4] = new Level("5", map5, item1, enemyset5, friendly1, player);
 
-
             //LEVEL SIX
             map6 = new TiledMap("data/Forest.tmx");
             enemyset6 = new Enemy[1];
@@ -136,8 +136,6 @@ public class GameplayState extends BasicGameState {
             enemyset7[0] = reddragon;
             enemyset7[1] = reddragon2;
             levels[6] = new Level("7", map7, item1, enemyset7, friendly1, player);
-
-            
 
         world.InitializeFirstLevel();
         npcAI = new NPCAI(world.GetCurrentLevel());

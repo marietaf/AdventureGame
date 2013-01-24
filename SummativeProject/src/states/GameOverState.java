@@ -1,6 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/*This program was created by Marieta Farova, Kelvin Xu and Aron Yoo
+ * from December 17th 2012, to January 24th 2013
+ * to create an rpg game in java
  */
 
 package states;
