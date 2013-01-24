@@ -20,11 +20,6 @@ import utilities.NPCInteraction;
 import utilities.PlayerInteraction;
 import utilities.World;
 
-/*
- * TO DO:
- * - startx and starty
- */
-
 /**
  *
  * @author root
@@ -39,7 +34,6 @@ public class GameplayState extends BasicGameState {
     Enemy greendragon, blueslime, blueslime2;
     // LEVELS ~~~~~~~~~~~~
     World world;
-    //ADD WHEN ADDING LEVELS
     TiledMap map1, map2, map3, map4, map5, map6, map7;
     Item[] item1;
     Friendly[] friendly1;
@@ -49,8 +43,6 @@ public class GameplayState extends BasicGameState {
     NPCInteraction npcInteraction;
     NPCAI npcAI;
 
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
     public GameplayState(int stateID){
         this.stateID = stateID;
     }
@@ -59,26 +51,6 @@ public class GameplayState extends BasicGameState {
     public int getID() {
         return 1;
     }
-    
-    /*
-    public static long startTime;
-
-    private void gameOver(StateBasedGame sbg){
-        //isiinitiallevel = true
-
-        levelID = "1";
-        map = levelMap[1];
-        sprite = down;
-        enemy1 = enemy1down;
-        x = 224;
-        y = 96;
-        enemy1x = 224;
-        enemy1y = 160;
-
-        startTime = System.currentTimeMillis();
-        sbg.enterState(2);
-    }
-    */
 
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
         //INITIALIZE ALL ENTITIES and levels!
@@ -113,18 +85,10 @@ public class GameplayState extends BasicGameState {
             levels[0] = new Level("1", map1, item1, enemyset1, friendly1, player);
 
             //LEVEL TWO
-<<<<<<< HEAD
-=======
-//<<<<<<< HEAD
->>>>>>> Added some monsters and polished the map transitions
             map2 = new TiledMap("data/map1v2.tmx");
             enemyset2 = new Enemy[1];
             enemyset2[0] = greendragon;
             levels[1] = new Level("2", map2, item1, enemyset2, friendly1, player);
-//=======
-            
-//>>>>>>> Added Enemies to Level 1 and 2 & Started WinState
-          
 
             //LEVEL THREE
             map3 = new TiledMap("data/cave1.tmx");
@@ -133,23 +97,11 @@ public class GameplayState extends BasicGameState {
             levels[2] = new Level ("3", map3, item1, enemyset3, friendly1, player);
 
             //LEVEL FOUR
-<<<<<<< HEAD
-            map4 = new TiledMap("data/cave2.tmx");
-            enemyset4 = new Enemy[0];
-            levels[3] = new Level("4", map4, item1, enemyset4, friendly1, player);
-=======
-//<<<<<<< HEAD
             map4 = new TiledMap("data/cave2.tmx");
             levels[3] = new Level("4", map4, item1, enemyset4, friendly1, player);
             enemyset4 = new Enemy[2];
             enemyset4[0] = blueslime2;
             enemyset4[1] = blueslime;
-            
-            
-//=======
-            
-//>>>>>>> Added Enemies to Level 1 and 2 & Started WinState
->>>>>>> Added some monsters and polished the map transitions
 
             //LEVEL FIVE
             map5 = new TiledMap("data/town1.tmx");
@@ -172,24 +124,6 @@ public class GameplayState extends BasicGameState {
 
         world.InitializeFirstLevel();
         npcAI = new NPCAI(world.GetCurrentLevel());
-            
-        
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-        //initilialize maps (map = current map)
-
-
-        //initialize images for the game
-        //images for sprite
-        
-
-        //the time between updates on sprites
-        
-
-        //false means it will only update when the user presses the key
-        
-
-        //tells what the original postition of the sprite is
 
     }
 
@@ -216,13 +150,6 @@ public class GameplayState extends BasicGameState {
         else if(input.isKeyDown(Input.KEY_RIGHT)){
             world.UpdatePlayer(Input.KEY_RIGHT, delta, sbg);
         }
-
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        
-
-        //((x or y) - delta * speed) is a way of making up for the difference in
-        //  update times so that when there is a larger gap (larger delta) then
-        //  the speed will be greater to compensate for this difference.
         
     }
 

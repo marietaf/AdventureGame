@@ -7,7 +7,6 @@ package utilities;
 
 import entities.*;
 import org.newdawn.slick.state.StateBasedGame;
-import states.GameplayState;
 
 /**
  *
@@ -45,7 +44,7 @@ public class World {
         currentLevel.player.SetNewCoordinates(playerInteraction.GetNextLevelInfo().GetStartX(),
                 playerInteraction.GetNextLevelInfo().GetStartY());
 
-        RenderCurrentLevel(/*nextLevelInfo.GetStartX(), nextLevelInfo.GetStartY()*/);
+        RenderCurrentLevel();
         playerInteraction = new PlayerInteraction(currentLevel);
         npcAI = new NPCAI(currentLevel);
         npcInteraction = new NPCInteraction(currentLevel, npcAI);
@@ -86,7 +85,7 @@ public class World {
     public void InitializeFirstLevel(){
         NextLevelInformation initialLevelInfo = new NextLevelInformation(initialLevelID, initialX, initialY);
         currentLevel = levels[0];
-        RenderCurrentLevel(/*initialLevelInfo.GetStartX(), initialLevelInfo.GetStartY()*/);
+        RenderCurrentLevel();
         playerInteraction = new PlayerInteraction(currentLevel);
         npcInteraction = new NPCInteraction(currentLevel, npcAI);
     }

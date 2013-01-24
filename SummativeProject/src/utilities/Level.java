@@ -41,7 +41,7 @@ public class Level {
         for(Friendly i: friendlies){
             i.Render();
         }
-        //player.Render();
+        player.Render();
     }
 
     public TiledMap GetTiledMap(){
