@@ -103,7 +103,7 @@ public class GameplayState extends BasicGameState {
             //Enemy
             CharacterStats enemy1Stats = new CharacterStats(0.7f, 3, 1);
             //enemy1 = new Enemy(enemy1up, enemy1down, enemy1left, enemy1right, 224, 200, 7, 10, 18, 22, enemy1Stats);
-            enemy1 = new Enemy("data/char2", duration, 224, 200, 7, 10, 18, 22, enemy1Stats);
+            enemy1 = new Enemy("data/char", duration, 224, 200, 7, 10, 18, 22, enemy1Stats);
             
         // LEVELS ~~~~~~~~~~
 

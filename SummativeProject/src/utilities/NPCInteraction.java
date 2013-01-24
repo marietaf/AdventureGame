@@ -24,6 +24,42 @@ public class NPCInteraction {
     public void HandleEvents(long delta){
         boolean collision;
         for (Enemy enemy: level.enemies){
+            CommonCode.CharacterDirection horizontalDirection;
+            CommonCode.CharacterDirection verticalDirection;
+            if (level.player.GetY() < enemy.GetY()){
+                 enemy.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Up);
+                    collision = CheckNPCCollision(enemy);
+                    if ( !collision ){
+                        enemy.MoveUp();
+                    }
+                    enemy.update(delta);
+            }
+            else {
+                 enemy.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Down);
+                    collision = CheckNPCCollision(enemy);
+                    if ( !collision ){
+                        enemy.MoveDown();
+                    }
+                    enemy.update(delta);
+            }
+
+            if (level.player.GetX() < enemy.GetX()){
+                enemy.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Left);
+                    collision = CheckNPCCollision(enemy);
+                    if ( !collision ){
+                        enemy.MoveLeft();
+                    }
+                    enemy.update(delta);
+            }
+            else {
+                enemy.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Right);
+                    collision = CheckNPCCollision(enemy);
+                    if ( !collision ){
+                        enemy.MoveRight();
+                    }
+                    enemy.update(delta);
+            }
+            /*
             switch(enemy.GetCharacterDirection()){
                 case Up:
                     enemy.ChangeRenderCharacterDirection(CommonCode.CharacterDirection.Up);
@@ -61,6 +97,8 @@ public class NPCInteraction {
                     enemy.update(delta);
                     break;
             }
+             * 
+             */
         }
 
     }

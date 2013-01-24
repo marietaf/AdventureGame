@@ -12,7 +12,6 @@ import entities.*;
  * @author root
  */
 public class NPCAI {
-    CommonCode.CharacterDirection direction;
     Level level;
 
     public NPCAI(Level level){
@@ -22,30 +21,23 @@ public class NPCAI {
 
     public void RunAI(long delta){
         for (Enemy enemy: level.enemies){
+            CommonCode.CharacterDirection horizontalDirection;
+            CommonCode.CharacterDirection verticalDirection;
             if (level.player.GetY() < enemy.GetY()){
-                this.direction = CommonCode.CharacterDirection.Up;
-                enemy.ChangeRenderCharacterDirection(direction);
-                break;
+                 verticalDirection = CommonCode.CharacterDirection.Up;
             }
-            if (level.player.GetY() > enemy.GetY()){
-                this.direction = CommonCode.CharacterDirection.Down;
-                enemy.ChangeRenderCharacterDirection(direction);
-                break;
+            else {
+                 verticalDirection = CommonCode.CharacterDirection.Down;
             }
+            enemy.ChangeRenderCharacterDirection(verticalDirection);
+            
             if (level.player.GetX() < enemy.GetX()){
-                this.direction = CommonCode.CharacterDirection.Left;
-                enemy.ChangeRenderCharacterDirection(direction);
-                break;
+                horizontalDirection = CommonCode.CharacterDirection.Left;
             }
-            if (level.player.GetX() > enemy.GetX()){
-                this.direction = CommonCode.CharacterDirection.Right;
-                enemy.ChangeRenderCharacterDirection(direction);
-                break;
+            else {
+                horizontalDirection = CommonCode.CharacterDirection.Right;
             }
+            enemy.ChangeRenderCharacterDirection(horizontalDirection);
         }
-    }
-
-    public CommonCode.CharacterDirection GetNPCDirection(){
-        return direction;
     }
 }
