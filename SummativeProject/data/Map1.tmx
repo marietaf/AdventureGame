@@ -28,10 +28,26 @@
  </tileset>
  <tileset firstgid="1960" name="properties_layer" tilewidth="32" tileheight="32">
   <image source="textures/properties_layer.jpg" width="480" height="480"/>
+  <tile id="2">
+   <properties>
+    <property name="door" value="true"/>
+    <property name="levelID" value="1"/>
+    <property name="startX" value="224"/>
+    <property name="startY" value="416"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="door" value="true"/>
+    <property name="levelID" value="3"/>
+    <property name="startX" value="256"/>
+    <property name="startY" value="448"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="properties" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC1vBzsCwgo4YBLCxidFHbb3I4oQAulmkAHrqxed/cvUSCldK9eLyL774o6VeUgGleQIAUx4FD4QDAAA=
+   H4sIAAAAAAAAC1vBzsCwgo54NRIbBIjVBwO00ksIEKtuoPXi8z+5egmFK6V6cfkXxl5FgV5scoT0kgoozRMAf/ZDyYQDAAA=
   </data>
  </layer>
  <layer name="Main Layer" width="15" height="15">

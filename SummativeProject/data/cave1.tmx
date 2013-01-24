@@ -20,7 +20,7 @@
  </tileset>
  <layer name="properties" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2vjZGBoGyAMAjAanY3MR1eDro5YQAu9uPxFL73EqiHFXmLcQ46biQG43INPPTXtJSVsiE3jhPQCAJUPNMqEAwAA
+   H4sIAAAAAAAAC2vjZGBoGyAMAjAanY3MR6aR9WLTgw+g68WnH5s6bGpx+QuXXnS3k6IXmz5i3Eaqm4lxD6luJhaQEkfoctSwl5SwITaNE9ILAG5VqSaEAwAA
   </data>
  </layer>
  <layer name="Tile Layer 1" width="15" height="15">

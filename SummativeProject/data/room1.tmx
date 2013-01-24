@@ -24,10 +24,18 @@
     <property name="blocked" value="true"/>
    </properties>
   </tile>
+  <tile id="2">
+   <properties>
+    <property name="door" value="true"/>
+    <property name="levelID" value="2"/>
+    <property name="startX" value="160"/>
+    <property name="startY" value="384"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="properties" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC/vFyMDwi0IMAjAaBpD5pOgjBEjRi89eYu0hRy82d5LqT2zmjCS9lMQZJfZSohcX/k1AHgCFddrYhAMAAA==
+   H4sIAAAAAAAAC/vFyMDwi0IMAjAaBpD5pOgjBEjRi89eYu0hRy82d5LqT2zmjCS9lMQZJfZSohcX/kNAHgAQZ09ghAMAAA==
   </data>
  </layer>
  <layer name="Main Layer" width="15" height="15">
