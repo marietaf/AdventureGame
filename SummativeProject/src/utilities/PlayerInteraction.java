@@ -17,6 +17,7 @@ public class PlayerInteraction {
 
     boolean switchLevel = false;
     boolean gameOver = false;
+    boolean gameWin = false;
     NextLevelInformation nextLevelInfo;
     Level level;
 
@@ -120,8 +121,10 @@ public class PlayerInteraction {
                 break;
         }
         
-        if ( level.GetLevelID().equals("7") && level.player.GetX() == 224 && level.player.GetY() == 352 ){
-            
+        if ( level.GetLevelID().equals("7") && 
+             level.player.GetX() >= 192 && level.player.GetX() <= 288 &&
+             level.player.GetY() >= 347 && level.player.GetY() <= 416 ){
+            gameWin = true;
         }
     }
 
@@ -135,5 +138,9 @@ public class PlayerInteraction {
 
     public boolean GetGameOver(){
         return gameOver;
+    }
+
+    public boolean GetGameWin(){
+        return gameWin;
     }
 }

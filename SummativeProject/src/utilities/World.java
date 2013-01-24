@@ -72,6 +72,9 @@ public class World {
         if(playerInteraction.GetGameOver()){
             sbg.enterState(2);
         }
+        if(playerInteraction.GetGameWin()){
+            sbg.enterState(3);
+        }
     }
 
     public void UpdateWorld(long delta, NPCAI npcAI){
