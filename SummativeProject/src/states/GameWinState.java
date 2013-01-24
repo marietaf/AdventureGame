@@ -35,7 +35,7 @@ public class GameWinState extends BasicGameState {
     }
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
-        grphcs.drawString("You won! Congrats!", 185, 240);
+        grphcs.drawString("You won! Congrats!", 150, 240);
     }
 
 }

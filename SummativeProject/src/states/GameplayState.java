@@ -31,7 +31,10 @@ public class GameplayState extends BasicGameState {
 
     // CHARACTERS ~~~~~~~~
     Player player;
-    Enemy greendragon, blueslime, blueslime2;
+    Enemy greendragon,
+          blueslime, blueslime2,
+          blackghost,
+          reddragon, reddragon2;
     // LEVELS ~~~~~~~~~~~~
     World world;
     TiledMap map1, map2, map3, map4, map5, map6, map7;
@@ -64,12 +67,23 @@ public class GameplayState extends BasicGameState {
             //Enemy - greendragon (lvl2)
             CharacterStats greendragonStats = new CharacterStats(0.5f, 3, 1);
             greendragon = new Enemy("data/sprites/greendragon", duration, 224, 200, 7, 10, 18, 22, greendragonStats);
-            //Enemy - greendragon
+            //Enemy - blueslime
             CharacterStats blueslimeStats = new CharacterStats(0.5f, 3, 1);
             blueslime = new Enemy("data/sprites/blueslime", duration, 300, 300, 7, 10, 18, 22, blueslimeStats);
 
             CharacterStats blueslime2Stats = new CharacterStats(0.5f, 3, 1);
             blueslime2 = new Enemy("data/sprites/blueslime", duration, 125, 200, 7, 10, 18, 22, blueslime2Stats);
+
+            //Enemy - blackghost
+            CharacterStats blackghostStats = new CharacterStats(0.3f, 3, 1);
+            blackghost = new Enemy("data/sprites/ghost", duration, 128, 224, 7, 10, 18, 22, blackghostStats);
+
+            //Enemy - blackghost
+            CharacterStats reddragonStats = new CharacterStats(0.5f, 3, 1);
+            reddragon = new Enemy("data/sprites/reddragon", duration, 32, 192, 7, 10, 18, 22, reddragonStats);
+
+            CharacterStats reddragon2Stats = new CharacterStats(0.5f, 3, 1);
+            reddragon2 = new Enemy("data/sprites/reddragon", duration, 416, 192, 7, 10, 18, 22, reddragon2Stats);
 
         // LEVELS ~~~~~~~~~~
 
@@ -111,13 +125,16 @@ public class GameplayState extends BasicGameState {
 
             //LEVEL SIX
             map6 = new TiledMap("data/Forest.tmx");
-            enemyset6 = new Enemy[0];
+            enemyset6 = new Enemy[1];
+            enemyset6[0] = blackghost;
             levels[5] = new Level("6", map6, item1, enemyset6, friendly1, player);
 
 
             //LEVEL SEVEN
             map7 =new TiledMap("data/Endgame.tmx");
-            enemyset7 = new Enemy[0];
+            enemyset7 = new Enemy[2];
+            enemyset7[0] = reddragon;
+            enemyset7[1] = reddragon2;
             levels[6] = new Level("7", map7, item1, enemyset7, friendly1, player);
 
             
