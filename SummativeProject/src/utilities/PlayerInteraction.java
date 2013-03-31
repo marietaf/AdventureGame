@@ -20,12 +20,15 @@ public class PlayerInteraction {
     boolean gameWin = false;
     NextLevelInformation nextLevelInfo;
     Level level;
+    int playerHitCountdown;
 
     public PlayerInteraction(Level level){
         this.level = level;
     }
 
     public void HandleEvents(int key, long delta){
+
+        UpdatePlayerHitCountdown();
 
         //Change player direction depending on key being pressed
         switch(key){
@@ -107,10 +110,13 @@ public class PlayerInteraction {
                 break;
                 
             case Enemy:
-                level.player.GetCharacterStats().TakeDamage(1);
-                int health = level.player.GetCharacterStats().GetHealth();
-                if ( health == 0 ){
-                    gameOver = true;
+                if (playerHitCountdown <= 0){
+                    level.player.TakeDamage(1);
+                    int health = level.player.GetCharacterStats().GetHealth();
+                    if ( health == 0 ){
+                        gameOver = true;
+                    }
+                    playerHitCountdown = 30;
                 }
                 break;
 
@@ -142,5 +148,13 @@ public class PlayerInteraction {
 
     public boolean GetGameWin(){
         return gameWin;
+    }
+
+    public void SetPlayerHitCountdown(int countdownNum){
+        playerHitCountdown = countdownNum;
+    }
+
+    public void UpdatePlayerHitCountdown(){
+        playerHitCountdown--;
     }
 }

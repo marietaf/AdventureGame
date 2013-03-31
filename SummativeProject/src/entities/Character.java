@@ -51,8 +51,6 @@ public class Character extends Entity {
         currentRenderable.update( delta );
     }
 
-
-
     public void ChangeRenderCharacterDirection(CommonCode.CharacterDirection direction) {
         switch (direction) {
             case Up:
@@ -87,6 +85,22 @@ public class Character extends Entity {
     
     public CharacterStats GetCharacterStats(){
         return characterStats.Clone();
+    }
+
+    public void SetSpeed(float speed){
+        characterStats.SetSpeed(speed);
+    }
+
+    public void SetHealth(int health){
+        characterStats.SetHealth(health);
+    }
+
+    public void SetDamage(int damage){
+        characterStats.SetDamage(damage);
+    }
+
+    public void TakeDamage(int enemyDamage){
+        characterStats.TakeDamage(1);
     }
 
     public void MoveUp(){

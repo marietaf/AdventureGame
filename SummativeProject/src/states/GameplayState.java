@@ -62,9 +62,9 @@ public class GameplayState extends BasicGameState {
         // CHARACTERS AND ENEMIES
         int [] duration = {300, 300};
             //Player
-            CharacterStats playerStats = new CharacterStats(1.5f, 0, 1);
-            player = new Player("data/char2", duration, 100, 100, 7, 10, 18, 22, playerStats);
-            //Enemy - greendragon (lvl2)
+            CharacterStats playerStats = new CharacterStats(1.5f, 5, 5);
+            player = new Player("data/char2", duration, 100, 100, 7, 10, 18, 22, playerStats, "data/sprites/pixelheart.gif");
+            //Enemy - greendragon
             CharacterStats greendragonStats = new CharacterStats(0.5f, 3, 1);
             greendragon = new Enemy("data/sprites/greendragon", duration, 224, 200, 7, 10, 18, 22, greendragonStats);
             //Enemy - blueslime
@@ -184,5 +184,14 @@ public class GameplayState extends BasicGameState {
             enemy.GetCharacterRenderableDirection().draw(enemy.GetX(), enemy.GetY());
         }
         player.GetCharacterRenderableDirection().draw(player.GetX(), player.GetY());
+        String playerHealth = "" + player.GetCharacterStats().GetHealth();
+        grphcs.drawString(playerHealth, 0, 0);
+        int i = 1;
+        int healthImageXCoord = 0;
+        while( i <= player.GetCharacterStats().GetHealth() ){
+            grphcs.drawImage(player.GetHealthImage(), healthImageXCoord, 448);
+            healthImageXCoord += 32;
+            i++;
+        }
     }
 }

@@ -88,6 +88,7 @@ public class World {
         RenderCurrentLevel();
         playerInteraction = new PlayerInteraction(currentLevel);
         npcInteraction = new NPCInteraction(currentLevel, npcAI);
+        playerInteraction.SetPlayerHitCountdown(0);
     }
 
 }
