@@ -76,6 +76,19 @@ public class World {
         }
     }
 
+    public void UpdatePlayer(StateBasedGame sbg){
+        playerInteraction.HandleEvents();
+        if( playerInteraction.GetSwitchLevel() ){
+            ChangeCurrentLevel();
+        }
+        if(playerInteraction.GetGameOver()){
+            sbg.enterState(2);
+        }
+        if(playerInteraction.GetGameWin()){
+            sbg.enterState(3);
+        }
+    }
+
     public void UpdateWorld(long delta, NPCAI npcAI){
         this.delta = delta;
         this.npcAI = npcAI;
@@ -89,6 +102,10 @@ public class World {
         playerInteraction = new PlayerInteraction(currentLevel);
         npcInteraction = new NPCInteraction(currentLevel, npcAI);
         playerInteraction.SetPlayerHitCountdown(0);
+    }
+
+    public PlayerInteraction GetPlayerInteraction(){
+        return playerInteraction;
     }
 
 }

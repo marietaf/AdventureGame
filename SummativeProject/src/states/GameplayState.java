@@ -174,6 +174,9 @@ public class GameplayState extends BasicGameState {
         else if(input.isKeyDown(Input.KEY_RIGHT)){
             world.UpdatePlayer(Input.KEY_RIGHT, delta, sbg);
         }
+        else{
+            world.UpdatePlayer(sbg);
+        }
         
     }
 

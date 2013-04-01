@@ -104,11 +104,33 @@ public class PlayerInteraction {
                 break;
         }
 
+        CheckPlayerIntersections();
+        
+        if ( level.GetLevelID().equals("7") && 
+             level.player.GetX() >= 192 && level.player.GetX() <= 288 &&
+             level.player.GetY() >= 347 && level.player.GetY() <= 416 ){
+            gameWin = true;
+        }
+    }
+
+    public void HandleEvents(){
+        UpdatePlayerHitCountdown();
+
+        CheckPlayerIntersections();
+
+        if ( level.GetLevelID().equals("7") &&
+             level.player.GetX() >= 192 && level.player.GetX() <= 288 &&
+             level.player.GetY() >= 347 && level.player.GetY() <= 416 ){
+            gameWin = true;
+        }
+    }
+
+    public void CheckPlayerIntersections(){
         //Check for intersections
         switch( utilities.IntersectionEvent.CheckForIntersection(level) ){
             case NoIntersection:
                 break;
-                
+
             case Enemy:
                 if (playerHitCountdown <= 0){
                     level.player.TakeDamage(1);
@@ -116,7 +138,7 @@ public class PlayerInteraction {
                     if ( health == 0 ){
                         gameOver = true;
                     }
-                    playerHitCountdown = 30;
+                    playerHitCountdown = 60;
                 }
                 break;
 
@@ -125,12 +147,6 @@ public class PlayerInteraction {
 
             case Item:
                 break;
-        }
-        
-        if ( level.GetLevelID().equals("7") && 
-             level.player.GetX() >= 192 && level.player.GetX() <= 288 &&
-             level.player.GetY() >= 347 && level.player.GetY() <= 416 ){
-            gameWin = true;
         }
     }
 
